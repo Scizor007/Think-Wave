@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atomic Hydrogen Excitation</title>
+    <link rel="stylesheet" href="chem.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Spacing Adjustments */
+        .page-title {
+            margin-top: 100px;
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the 3D Model */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #ffffff;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Atomic Hydrogen Excitation</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe 
+            title="Atomic Hydrogen Excitation" 
+            frameborder="0" allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking execution-while-out-of-viewport 
+            execution-while-not-rendered web-share 
+            src="https://sketchfab.com/models/ea689c9c4f02464a9a22003e9498f2c2/embed">
+        </iframe>
+    </div>
+
+    <p style="font-size: 13px; font-weight: normal; margin-top: 10px; text-align: center; color: #CCCCCC;"> 
+        <a href="https://sketchfab.com/3d-models/atomic-hydrogen-excitation-ea689c9c4f02464a9a22003e9498f2c2" 
+           target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Atomic Hydrogen Excitation </a> 
+        by <a href="https://sketchfab.com/Michael.Aristov" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Michael Aristov </a> 
+        on <a href="https://sketchfab.com" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+    </p>
+
+    <!-- Experiment Information -->
+    <div class="content">
+        <h2>Overview of the Experiment</h2>
+        <p>The excitation of atomic hydrogen involves the transition of electrons from a lower energy state to a higher energy state when they absorb energy. This concept is fundamental in quantum mechanics and spectroscopy.</p>
+
+        <h2>Setup of the Experiment</h2>
+        <ul>
+            <li>Hydrogen gas is placed in a discharge tube and subjected to high voltage.</li>
+            <li>The applied energy excites the electrons in hydrogen atoms, moving them to higher energy levels.</li>
+            <li>When electrons return to lower energy levels, they emit light at specific wavelengths, creating the hydrogen emission spectrum.</li>
+        </ul>
+
+        <h2>Key Observations</h2>
+        <ul>
+            <li>Distinct spectral lines are observed, known as the Balmer series.</li>
+            <li>The emitted wavelengths correspond to the energy differences between quantized electron orbits.</li>
+            <li>This experiment confirmed the quantum nature of electron transitions in atoms.</li>
+        </ul>
+
+        <h2>Conclusions and Impact</h2>
+        <p>The study of hydrogen excitation played a crucial role in the development of quantum mechanics, particularly the Bohr model of the atom. It provided evidence for quantized energy levels and helped explain atomic spectra.</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

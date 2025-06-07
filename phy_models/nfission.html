@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuclear Fission</title>
+    <link rel="stylesheet" href="phy.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        .page-title {
+            margin-top: 100px;
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px;
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #ffffff;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Nuclear Fission</h1>
+
+    <div class="sketchfab-embed-wrapper">
+        <iframe title="Nuclear Fission" frameborder="0" allowfullscreen 
+            mozallowfullscreen="true" webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking execution-while-out-of-viewport 
+            execution-while-not-rendered web-share 
+            src="https://sketchfab.com/models/001ad554589442959780744124fdb054/embed">
+        </iframe>
+    </div>
+
+    <p style="font-size: 13px; font-weight: normal; margin-top: 10px; text-align: center; color: #CCCCCC;"> 
+        <a href="https://sketchfab.com/3d-models/nuclear-fission-001ad554589442959780744124fdb054" 
+           target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Nuclear Fission </a> 
+        by <a href="https://sketchfab.com/highedvr" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> highedvr </a> 
+        on <a href="https://sketchfab.com" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+    </p>
+
+    <div class="content">
+        <h2>What is Nuclear Fission?</h2>
+        <p>Nuclear fission is a reaction in which the nucleus of an atom splits into two or more smaller nuclei, along with the release of a large amount of energy. This process is fundamental to nuclear reactors and atomic bombs.</p>
+
+        <h2>Working Principle</h2>
+        <p>Nuclear fission occurs when a heavy nucleus, such as uranium-235 or plutonium-239, absorbs a neutron and becomes unstable. The nucleus then splits, releasing energy and additional neutrons, which can further sustain the reaction in a chain process.</p>
+
+        <h2>Key Components</h2>
+        <ul>
+            <li><strong>Fuel:</strong> Typically uranium-235 or plutonium-239.</li>
+            <li><strong>Neutron Moderator:</strong> Slows down neutrons to sustain the chain reaction.</li>
+            <li><strong>Control Rods:</strong> Absorb excess neutrons to regulate the reaction.</li>
+            <li><strong>Coolant:</strong> Transfers heat from the reactor core.</li>
+        </ul>
+
+        <h2>Applications</h2>
+        <ul>
+            <li>Used in nuclear power plants for electricity generation.</li>
+            <li>Forms the basis of nuclear weapons.</li>
+            <li>Applications in medical and industrial fields.</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

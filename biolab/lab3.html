@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Selection</title>
+    <link rel="stylesheet" href="biol.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Page Title */
+        .page-title {
+            margin-top: 100px; /* Space from taskbar */
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the 3D Model */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        /* Content Box Styling */
+        .content-box {
+            margin: 40px auto 60px; /* Adjusted margins for proper spacing */
+            width: 75%;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            background-color: rgba(0, 0, 0, 0.5); /* Subtle background for readability */
+            border-radius: 10px;
+        }
+
+        .content-box h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Natural Selection</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe src="https://phet.colorado.edu/sims/html/natural-selection/latest/natural-selection_en.html"
+        width="800"
+        height="600"
+        allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Content Box -->
+    <div class="content-box">
+        <h2>Natural Selection</h2>
+        <p>
+            Natural selection is the process by which organisms with advantageous traits survive and reproduce more successfully than others. Over generations, these beneficial traits become more common in the population.
+        </p>
+        <p>
+            This principle, introduced by Charles Darwin, explains how species evolve over time in response to environmental pressures. Examples include antibiotic resistance in bacteria and the camouflage of certain animals for survival.
+        </p>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

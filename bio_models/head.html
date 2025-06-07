@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Head Anatomy & Musculature</title>
+    <link rel="stylesheet" href="bio.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .page-title {
+            margin-top: 100px;
+            font-size: 32px;
+            text-align: center;
+            color: #ffcc00;
+        }
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        iframe {
+            width: 800px;
+            height: 550px;
+            border-radius: 10px;
+            border: none;
+        }
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        .content h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 25px;
+            color: #ffcc00;
+        }
+        .content ul {
+            margin-left: 20px;
+            list-style-type: square;
+        }
+        .footer {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 14px;
+            color: #CCCCCC;
+        }
+        .footer a {
+            color: #1CAAD9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Head Anatomy & Musculature</h1>
+
+    <div class="sketchfab-embed-wrapper">
+        <iframe 
+            title="Head Anatomy & Musculature" 
+            frameborder="0" allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking execution-while-out-of-viewport 
+            execution-while-not-rendered web-share 
+            src="https://sketchfab.com/models/b018e3f215c14be6ab5c52e5371c3ba5/embed">
+        </iframe>
+    </div>
+
+    <p class="footer"> 
+        <a href="https://sketchfab.com/3d-models/head-anatomy-musculature-b018e3f215c14be6ab5c52e5371c3ba5" target="_blank" rel="nofollow">Head Anatomy & Musculature</a>
+        by <a href="https://sketchfab.com/medicalanimation" target="_blank" rel="nofollow">Fusion Medical Animation</a>
+        on <a href="https://sketchfab.com" target="_blank" rel="nofollow">Sketchfab</a>
+    </p>
+
+    <div class="content">
+        <h2>What is Head Anatomy & Musculature?</h2>
+        <p>The human head contains several essential anatomical structures, including the skull, muscles, nerves, and blood vessels, which work together to support functions such as facial expressions, chewing, and head movement.</p>
+
+        <h2>Structure of the Head Musculature</h2>
+        <ul>
+            <li><strong>Skull:</strong> The bony framework that protects the brain and supports the facial structure.</li>
+            <li><strong>Facial Muscles:</strong> Responsible for facial expressions, including the orbicularis oris (mouth movement) and orbicularis oculi (eye blinking).</li>
+            <li><strong>Temporalis and Masseter:</strong> Powerful muscles involved in chewing.</li>
+            <li><strong>Sternocleidomastoid:</strong> A large muscle that controls head rotation and movement.</li>
+            <li><strong>Occipitalis:</strong> Helps in scalp movement and expressions.</li>
+        </ul>
+
+        <h2>Functions of the Head Musculature</h2>
+        <p>The muscles in the head and face play a crucial role in various functions, including chewing, swallowing, speaking, and expressing emotions. They also assist in head movement and stability.</p>
+
+        <h2>Common Disorders of the Head Musculature</h2>
+        <ul>
+            <li><strong>Temporomandibular Joint (TMJ) Disorder:</strong> Causes jaw pain and difficulty chewing due to issues with the jaw muscles and joint.</li>
+            <li><strong>Facial Paralysis:</strong> Can result from nerve damage, affecting muscle control and facial expressions.</li>
+            <li><strong>Tension Headaches:</strong> Often caused by muscle strain in the head and neck.</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading taskbar:", error));
+        });
+    </script>
+<button class="button" id="quiz">Take quiz >>></button>
+<script>
+    document.getElementById("quiz").addEventListener("click", function () {
+        window.location.href = "headQ.html"; // Redirect to the quiz page
+    });
+</script>
+</body>
+</html>

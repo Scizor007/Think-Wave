@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Heart Quiz</title>
+    <style>
+        /* Styling for the quiz page */
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .quiz-container, .leaderboard-container, .score-container {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            width: 50%;
+            margin-top: 20px;
+        }
+        .question {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .option {
+            background-color: gray;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            width: 80%;
+            cursor: pointer;
+            text-align: left;
+            font-size: 16px;
+            display: block;
+            border-radius: 5px;
+        }
+        .option:hover {
+            background-color: #555;
+        }
+        .correct {
+            background-color: green !important;
+        }
+        .wrong {
+            background-color: red !important;
+        }
+        #next-btn {
+            display: none;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .leaderboard-container, .score-container {
+            margin-top: 20px;
+            display: none;
+        }
+        #restart-btn {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Human Heart Quiz</h1>
+
+    <!-- Quiz Container -->
+    <div class="quiz-container" id="quiz">
+        <div id="question" class="question"></div> <!-- Question will be displayed here -->
+        <div id="options"></div> <!-- Options will be displayed here -->
+        <div id="feedback"></div> <!-- Feedback (correct/wrong) will be displayed here -->
+        <button id="next-btn" onclick="nextQuestion()">Next</button> <!-- Next button -->
+    </div>
+
+    <!-- Score Container (shown after quiz ends) -->
+    <div class="score-container" id="score-container">
+        <h2>Your Score: <span id="final-score"></span></h2> <!-- Final score will be displayed here -->
+        <h2>Time Taken: <span id="time-taken"></span> seconds</h2> <!-- Time taken will be displayed here -->
+        <button onclick="saveScore()">Save Score</button> <!-- Save score to leaderboard -->
+        <button onclick="showLeaderboard()">View Leaderboard</button> <!-- Show leaderboard -->
+    </div>
+
+    <!-- Leaderboard Container (shown when viewing leaderboard) -->
+    <div class="leaderboard-container" id="leaderboard">
+        <h2>Leaderboard</h2>
+        <ul id="leaderboard-list"></ul> <!-- Leaderboard entries will be displayed here -->
+        <button id="restart-btn" onclick="restartQuiz()">Restart Quiz</button> <!-- Restart quiz -->
+    </div>
+
+    <script>
+        // Quiz questions
+        const questions = [
+            { question: "How many chambers does the human heart have?", options: ["2", "3", "4", "5"], correct: 2 },
+            { question: "Which chamber of the heart pumps oxygenated blood to the body?", options: ["Left Atrium", "Right Atrium", "Left Ventricle", "Right Ventricle"], correct: 2 },
+            { question: "What is the function of the heart valves?", options: ["Produce blood", "Ensure one-way blood flow", "Store oxygen", "Filter waste"], correct: 1 },
+            { question: "Which artery carries oxygenated blood from the heart to the body?", options: ["Pulmonary Artery", "Aorta", "Coronary Artery", "Vena Cava"], correct: 1 },
+        ];
+
+        let currentQuestionIndex = 0; // Tracks the current question
+        let score = 0; // Tracks the user's score
+        let answered = false; // Prevents multiple answers to the same question
+        let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || []; // Load leaderboard from localStorage
+        let startTime; // Tracks the start time of the quiz
+        let endTime; // Tracks the end time of the quiz
+
+        // Start the quiz timer
+        function startTimer() {
+            startTime = new Date(); // Record the start time
+        }
+
+        // Calculate the time taken for the quiz
+        function calculateTimeTaken() {
+            endTime = new Date(); // Record the end time
+            const timeDiff = (endTime - startTime) / 1000; // Time difference in seconds
+            return timeDiff.toFixed(2); // Return time taken in seconds (2 decimal places)
+        }
+
+        // Load the current question
+        function loadQuestion() {
+            let q = questions[currentQuestionIndex];
+            document.getElementById("question").innerText = q.question; // Display the question
+            let optionsHtml = "";
+            q.options.forEach((option, index) => {
+                optionsHtml += `<button class="option" onclick="checkAnswer(${index})">${option}</button>`; // Create option buttons
+            });
+            document.getElementById("options").innerHTML = optionsHtml; // Display the options
+            document.getElementById("feedback").innerHTML = ""; // Clear feedback
+            document.getElementById("next-btn").style.display = "none"; // Hide the Next button
+            answered = false; // Reset answered flag
+        }
+
+        // Check if the selected answer is correct
+        function checkAnswer(selectedIndex) {
+            if (answered) return; // Prevent multiple answers
+            answered = true;
+
+            let correctIndex = questions[currentQuestionIndex].correct; // Get the correct answer index
+            let options = document.querySelectorAll(".option"); // Get all option buttons
+
+            // Highlight the selected answer (green if correct, red if wrong)
+            options[selectedIndex].classList.add(selectedIndex === correctIndex ? "correct" : "wrong");
+
+            // Update score and display feedback
+            if (selectedIndex === correctIndex) {
+                score += 2; // Add 2 points for correct answer
+                document.getElementById("feedback").innerHTML = `<span style="color: lightgreen;">Correct! +2</span>`;
+            } else {
+                document.getElementById("feedback").innerHTML = `<span style="color: orange;">Wrong! The correct answer is: ${questions[currentQuestionIndex].options[correctIndex]}</span>`;
+                options[correctIndex].classList.add("correct"); // Highlight the correct answer
+            }
+
+            document.getElementById("next-btn").style.display = "inline-block"; // Show the Next button
+            disableOptions(); // Disable all options after answering
+        }
+
+        // Disable all option buttons after answering
+        function disableOptions() {
+            let options = document.querySelectorAll(".option");
+            options.forEach(option => option.disabled = true);
+        }
+
+        // Move to the next question or show the final score
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion(); // Load the next question
+            } else {
+                showScore(); // Show the final score if all questions are answered
+            }
+        }
+
+        // Show the final score and time taken
+        function showScore() {
+            const timeTaken = calculateTimeTaken(); // Calculate time taken
+            document.getElementById("quiz").style.display = "none"; // Hide the quiz
+            document.getElementById("score-container").style.display = "block"; // Show the score container
+            document.getElementById("final-score").innerText = score; // Display the final score
+            document.getElementById("time-taken").innerText = timeTaken; // Display the time taken
+        }
+
+        // Save the score and time to the leaderboard
+        function saveScore() {
+            const timeTaken = calculateTimeTaken(); // Calculate time taken
+            let username = prompt("Enter your name:"); // Ask for the user's name
+            if (!username) return; // Don't proceed if no name is entered
+
+            leaderboard.push({ name: username, score, time: parseFloat(timeTaken) }); // Add the score and time to the leaderboard
+            leaderboard.sort((a, b) => {
+                if (b.score === a.score) {
+                    return a.time - b.time; // Sort by time if scores are equal
+                }
+                return b.score - a.score; // Sort by score (highest first)
+            });
+            localStorage.setItem("leaderboard", JSON.stringify(leaderboard)); // Save the leaderboard to localStorage
+
+            alert("Score saved! You can now view the leaderboard.");
+        }
+
+        // Show the leaderboard
+        function showLeaderboard() {
+            document.getElementById("score-container").style.display = "none"; // Hide the score container
+            document.getElementById("leaderboard").style.display = "block"; // Show the leaderboard
+
+            let leaderboardHtml = "";
+            leaderboard.forEach((entry, index) => {
+                leaderboardHtml += `<li>${index + 1}. ${entry.name} - ${entry.score} pts (${entry.time} sec)</li>`; // Display leaderboard entries
+            });
+
+            document.getElementById("leaderboard-list").innerHTML = leaderboardHtml; // Update the leaderboard list
+        }
+
+        // Restart the quiz
+        function restartQuiz() {
+            currentQuestionIndex = 0; // Reset question index
+            score = 0; // Reset score
+            document.getElementById("quiz").style.display = "inline-block"; // Show the quiz
+            document.getElementById("score-container").style.display = "none"; // Hide the score container
+            document.getElementById("leaderboard").style.display = "none"; // Hide the leaderboard
+            startTimer(); // Restart the timer
+            loadQuestion(); // Load the first question
+        }
+
+        // Start the quiz timer and load the first question
+        startTimer();
+        loadQuestion();
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+/* General Page Styling */
+body {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Taskbar */
+.taskbar-container {
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #222;
+    z-index: 10;
+}
+
+/* Page Title */
+.page-title {
+    margin-top: 100px; /* Space from taskbar */
+    font-size: 28px;
+    color: #ffcc00; /* Making title yellow */
+}
+
+/* Content */
+.content {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.model-container {
+    text-align: center;
+    margin-top: 120px; /* Increased to move lower */
+}
+
+/* Button Styling */
+.model-button {
+    display: inline-block;
+    background-color: rgb(229, 90, 85);
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px 20px;
+    border: 4px solid white;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 5px 5px 0px white;
+    font-family: 'Press Start 2P', cursive;
+    margin: 20px; /* Further increase space between buttons */
+}
+/* Hover Effect */
+.model-button:hover {
+    transform: scale(1.1);
+    box-shadow: 8px 8px 0px white;
+}

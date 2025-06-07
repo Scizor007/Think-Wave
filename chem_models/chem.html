@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry 3D Models</title>
+    <link rel="stylesheet" href="chem.css"> <!-- External CSS for styling -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Chemistry 3D Models</h1>
+
+    <!-- Placeholder for content -->
+    <div class="content">
+        <a href="atom.html" class="model-button">Atomic Structure</a>
+        <a href="exp.html" class="model-button">Geiger-Marsden experiment</a>
+        <a href="exp2.html" class="model-button">Millikan's Oil Drop Experiment</a>
+        <a href="exp3.html" class="model-button">Thomson's experiment</a>
+        <a href="aheexp.html" class="model-button">Atomic Hydrogen Excitation</a>
+        <a href="ecm.html" class="model-button">Electron Cloud Model</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../taskbar.html")  // Move up one level to find it
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading taskbar:", error));
+        });
+    </script>
+    
+
+</body>
+</html>

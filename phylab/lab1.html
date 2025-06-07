@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buoyancy</title>
+    <link rel="stylesheet" href="phyl.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Page Title */
+        .page-title {
+            margin-top: 100px; /* Space from taskbar */
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the Simulation */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        /* Content Box Styling */
+        .content-box {
+            margin: 40px auto 60px;
+            width: 75%;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            background-color: rgba(0, 0, 0, 0.5); /* Subtle background for readability */
+            border-radius: 10px;
+        }
+
+        .content-box h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Buoyancy</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe src="https://phet.colorado.edu/sims/html/buoyancy/latest/buoyancy_en.html"
+        width="800"
+        height="600"
+        allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Content Box -->
+    <div class="content-box">
+        <h2>Understanding Buoyancy</h2>
+        <p>
+            Buoyancy is the upward force exerted by a fluid on an object placed in it. It determines whether an object floats or sinks.
+        </p>
+
+        <h2>Archimedes' Principle</h2>
+        <p>
+            Archimedes' principle states that:
+            <br><br>
+            *"An object fully or partially submerged in a fluid experiences an upward force equal to the weight of the fluid displaced by the object."*
+        </p>
+
+        <h2>Factors Affecting Buoyancy</h2>
+        <ul>
+            <li><strong>Density:</strong> Objects less dense than water float, while denser objects sink.</li>
+            <li><strong>Volume of Displaced Fluid:</strong> The larger the displaced volume, the greater the buoyant force.</li>
+            <li><strong>Gravity:</strong> The strength of gravity influences the net force acting on the object.</li>
+        </ul>
+
+        <h2>Real-Life Applications</h2>
+        <ul>
+            <li><strong>Ships & Submarines:</strong> Adjust their buoyancy using ballast tanks.</li>
+            <li><strong>Hot Air Balloons:</strong> Rise when heated air becomes less dense than surrounding air.</li>
+            <li><strong>Swimming:</strong> Human body experiences buoyant force, allowing us to float.</li>
+        </ul>
+
+        <h2>Exploring the Simulation</h2>
+        <p>
+            Use this interactive simulation to:
+            <ul>
+                <li>Experiment with different objects and observe their buoyancy.</li>
+                <li>Change the density of objects to see how it affects floating or sinking.</li>
+                <li>Understand the real-world implications of buoyancy.</li>
+            </ul>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

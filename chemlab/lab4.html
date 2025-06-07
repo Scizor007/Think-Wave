@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutherford Scattering</title>
+    <link rel="stylesheet" href="cheml.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Page Title */
+        .page-title {
+            margin-top: 100px; /* Space from taskbar */
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the 3D Model */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        /* Content Box Styling */
+        .content-box {
+            margin: 40px auto 60px; /* Adjusted margins for proper spacing */
+            width: 75%;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            background-color: rgba(0, 0, 0, 0.5); /* Subtle background for readability */
+            border-radius: 10px;
+        }
+
+        .content-box h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Rutherford Scattering</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe src="https://phet.colorado.edu/sims/html/rutherford-scattering/latest/rutherford-scattering_en.html"
+        width="800"
+        height="600"
+        allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Content Box -->
+    <div class="content-box">
+        <h2>Understanding Rutherford’s Scattering Experiment</h2>
+        <p>
+            In 1909, Ernest Rutherford conducted an experiment that led to a groundbreaking discovery about atomic structure. 
+            Using alpha particles (helium nuclei) directed at a thin gold foil, he observed how they scattered.
+        </p>
+
+        <p>
+            The surprising results showed that:
+            <ul>
+                <li>Most alpha particles passed straight through, meaning the atom is mostly empty space.</li>
+                <li>Some particles deflected at angles, suggesting the presence of a dense, positively charged center.</li>
+                <li>A few bounced straight back, proving the existence of a tiny, massive nucleus.</li>
+            </ul>
+        </p>
+
+        <h2>Exploring the Simulation</h2>
+        <p>
+            This interactive simulation allows you to:
+            <ul>
+                <li>Adjust the energy and charge of alpha particles.</li>
+                <li>Observe scattering patterns as particles interact with the nucleus.</li>
+                <li>Understand how the nuclear model of the atom replaced the plum pudding model.</li>
+            </ul>
+        </p>
+        <p>
+            This was a crucial step in developing modern atomic theory.
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

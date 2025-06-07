@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThinkWave</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="sidebar.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Press Start 2P', cursive;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .title {
+            font-size: 5rem;
+            text-shadow: 4px 4px 0px #000;
+            background: linear-gradient(to bottom, pink, white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-top: 50px;
+            color: #ffffff;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 600;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .button {
+            margin-top: 70px;
+            padding: 20px 40px;
+            font-size: 1rem;
+            color: black;
+            background: yellow;
+            border: 4px solid black;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 6px 6px 0px black;
+            font-family: 'Press Start 2P', cursive;
+            position: absolute;
+            bottom: 20px;
+            animation: bounce 2.5s ease-in-out infinite;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 8px 8px 0px black;
+        }
+
+        .taskbar-container {
+            width: 100%;
+            height: 60px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #222;
+            z-index: 10;
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup {
+    background: black;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 400px; /* Increased width */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: -10px; /* Moves it a bit higher */
+    right: -10px;
+    background: red;
+    color: white;
+    border: none;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 4px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popup {
+    background: black;
+    padding: 40px 30px; /* Increase padding */
+    border-radius: 10px;
+    text-align: center;
+    width: 450px; 
+    height: 520px; /* Increase height */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content */
+    align-items: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px; /* Moves it inside */
+    right: 35px; /* Moves it inside */
+    background: red;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.modal-container {
+    position: relative;
+}
+
+
+        .popup h2 {
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .popup p {
+    margin-bottom: 25px; /* Space before buttons */
+    font-size: 1.1rem;
+}
+
+.popup button {
+    width: 80%;
+    padding: 15px; /* Increase button size */
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 10px; /* Add spacing between buttons */
+}
+
+        .login-btn { background: #28a745; color: white; }
+        .signup-btn { background: #007bff; color: white; }
+        .popup button:hover { opacity: 0.85; }
+    </style>
+</head>
+<body>
+    <div id="taskbar-container" class="taskbar-container"></div>
+    <video autoplay muted loop class="video-bg">
+        <source src="background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="title">ThinkWave</div>
+    <div class="tagline">A creative space to discover, play, and grow! ⋆˙⟡</div>
+    <button class="button" id="getStarted">Get Started</button>
+
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+            <button class="close-btn" id="closePopup">x</button>
+            <h2>Welcome to ThinkWave!</h2>
+            <p>Do you want to create an account or log in?</p>
+            <button class="login-btn" id="loginBtn">Log In</button>
+            <button class="signup-btn" id="signupBtn">Sign Up</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+
+        const getStartedBtn = document.getElementById("getStarted");
+        const popupOverlay = document.getElementById("popupOverlay");
+        const closePopupBtn = document.getElementById("closePopup");
+        const loginBtn = document.getElementById("loginBtn");
+        const signupBtn = document.getElementById("signupBtn");
+
+        getStartedBtn.addEventListener("click", () => popupOverlay.style.display = "flex");
+        closePopupBtn.addEventListener("click", () => popupOverlay.style.display = "none");
+        loginBtn.addEventListener("click", () => window.location.href = "login.html");
+        signupBtn.addEventListener("click", () => window.location.href = "signup.html");
+        popupOverlay.addEventListener("click", (event) => {
+            if (event.target === popupOverlay) popupOverlay.style.display = "none";
+        });
+    </script>
+</body>
+</html>

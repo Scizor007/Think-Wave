@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="dashboard.css"> <!-- External CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <!-- Video Background -->
+    <video autoplay muted loop class="video-bg">
+        <source src="background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="welcome-title">Welcome to ThinkWave ᯓ★ˎˊ˗</h1>
+        <p class="welcome-text">Explore, Learn, and Have Fun!</p>
+
+        <!-- 3D Models Button -->
+        <a href="models.html" class="pixel-button">3D Models</a>
+        <a href="labs.html" class="pixel-button">Virtual Labs</a>
+        <a href="map.html" class="pixel-button">Find a Tutor Nearby</a>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology 3D Models</title>
+    <link rel="stylesheet" href="bio.css"> <!-- External CSS for styling -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Biology 3D Models</h1>
+
+    <!-- Placeholder for content -->
+    <div class="content">
+        <a href="animalcell.html" class="model-button">Animal Cell</a>
+        <a href="plantcell.html" class="model-button">Plant Cell</a>
+        <a href="bacterialcell.html" class="model-button">Bacterial Cell</a>
+        <a href="auditorysys.html" class="model-button">Auditory System</a>
+        <a href="head.html" class="model-button">Head Anatomy & Musculature</a>
+        <a href="heart.html" class="model-button">Human Heart</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../taskbar.html")  // Move up one level to find it
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading taskbar:", error));
+        });
+    </script>
+    
+
+</body>
+</html>

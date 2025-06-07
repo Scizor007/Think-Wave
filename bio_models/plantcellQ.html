@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Cell Quiz</title>
+    <style>
+        /* Styling for the quiz page */
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .quiz-container, .leaderboard-container, .score-container {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            width: 50%;
+            margin-top: 20px;
+        }
+        .question {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .option {
+            background-color: gray;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            width: 80%;
+            cursor: pointer;
+            text-align: left;
+            font-size: 16px;
+            display: block;
+            border-radius: 5px;
+        }
+        .option:hover {
+            background-color: #555;
+        }
+        .correct {
+            background-color: green !important;
+        }
+        .wrong {
+            background-color: red !important;
+        }
+        #next-btn {
+            display: none;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .leaderboard-container, .score-container {
+            margin-top: 20px;
+            display: none;
+        }
+        #restart-btn {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #leaderboard-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        #leaderboard-list li {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Plant Cell Quiz</h1>
+
+    <!-- Quiz Container -->
+    <div class="quiz-container" id="quiz">
+        <div id="question" class="question"></div> <!-- Question will be displayed here -->
+        <div id="options"></div> <!-- Options will be displayed here -->
+        <div id="feedback"></div> <!-- Feedback (correct/wrong) will be displayed here -->
+        <button id="next-btn" onclick="nextQuestion()">Next</button> <!-- Next button -->
+    </div>
+
+    <!-- Score Container (shown after quiz ends) -->
+    <div class="score-container" id="score-container">
+        <h2>Your Score: <span id="final-score"></span></h2> <!-- Final score will be displayed here -->
+        <button onclick="saveScore(event)">Save Score</button> <!-- Save score to leaderboard -->
+        <button onclick="showLeaderboard()">View Leaderboard</button> <!-- Show leaderboard -->
+    </div>
+
+    <!-- Leaderboard Container (shown when viewing leaderboard) -->
+    <div class="leaderboard-container" id="leaderboard">
+        <h2>Leaderboard</h2>
+        <ul id="leaderboard-list"></ul> <!-- Leaderboard entries will be displayed here -->
+        <button id="restart-btn" onclick="restartQuiz()">Restart Quiz</button> <!-- Restart quiz -->
+    </div>
+
+    <script>
+        // Quiz questions
+        const questions = [
+            { question: "What is the main component of a plant cell wall?", options: ["Cellulose", "Peptidoglycan", "Chitin", "Lipid Bilayer"], correct: 0 },
+            { question: "Which organelle is responsible for photosynthesis in plant cells?", options: ["Mitochondria", "Chloroplast", "Nucleus", "Ribosome"], correct: 1 },
+            { question: "What is the function of the vacuole in a plant cell?", options: ["Protein Synthesis", "Energy Production", "Storage", "DNA Replication"], correct: 2 },
+            { question: "Which structure is unique to plant cells?", options: ["Cell Wall", "Nucleus", "Ribosome", "Mitochondria"], correct: 0 },
+        ];
+
+        let currentQuestionIndex = 0; // Tracks the current question
+        let score = 0; // Tracks the user's score
+        let answered = false; // Prevents multiple answers to the same question
+        let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || []; // Load leaderboard from localStorage
+
+        // Load the current question
+        function loadQuestion() {
+            let q = questions[currentQuestionIndex];
+            document.getElementById("question").innerText = q.question; // Display the question
+            let optionsHtml = "";
+            q.options.forEach((option, index) => {
+                optionsHtml += `<button class="option" onclick="checkAnswer(${index})">${option}</button>`; // Create option buttons
+            });
+            document.getElementById("options").innerHTML = optionsHtml; // Display the options
+            document.getElementById("feedback").innerHTML = ""; // Clear feedback
+            document.getElementById("next-btn").style.display = "none"; // Hide the Next button
+            answered = false; // Reset answered flag
+        }
+
+        // Check if the selected answer is correct
+        function checkAnswer(selectedIndex) {
+            if (answered) return; // Prevent multiple answers
+            answered = true;
+
+            let correctIndex = questions[currentQuestionIndex].correct; // Get the correct answer index
+            let options = document.querySelectorAll(".option"); // Get all option buttons
+
+            // Highlight the selected answer (green if correct, red if wrong)
+            options[selectedIndex].classList.add(selectedIndex === correctIndex ? "correct" : "wrong");
+
+            // Update score and display feedback
+            if (selectedIndex === correctIndex) {
+                score += 2; // Add 2 points for correct answer
+                document.getElementById("feedback").innerHTML = `<span style="color: lightgreen;">Correct! +2</span>`;
+            } else {
+                document.getElementById("feedback").innerHTML = `<span style="color: orange;">Wrong! The correct answer is: ${questions[currentQuestionIndex].options[correctIndex]}</span>`;
+                options[correctIndex].classList.add("correct"); // Highlight the correct answer
+            }
+
+            document.getElementById("next-btn").style.display = "inline-block"; // Show the Next button
+            disableOptions(); // Disable all options after answering
+        }
+
+        // Disable all option buttons after answering
+        function disableOptions() {
+            let options = document.querySelectorAll(".option");
+            options.forEach(option => option.disabled = true);
+        }
+
+        // Move to the next question or show the final score
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion(); // Load the next question
+            } else {
+                showScore(); // Show the final score if all questions are answered
+            }
+        }
+
+        // Show the final score
+        function showScore() {
+            document.getElementById("quiz").style.display = "none"; // Hide the quiz
+            document.getElementById("score-container").style.display = "block"; // Show the score container
+            document.getElementById("final-score").innerText = score; // Display the final score
+        }
+
+        // Save the score to the leaderboard
+        function saveScore(event) {
+            event.preventDefault(); // Prevent the default button behavior
+
+            const username = prompt("Enter your name:");
+            if (!username) return;
+
+            const scoreData = { name: username, score };
+
+            // Send the score data to the backend
+            fetch("http://localhost:4000/saveScore", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(scoreData),
+            })
+                .then((response) => response.text())
+                .then((message) => {
+                    alert(message);
+                    // Optionally, automatically show the leaderboard after saving the score
+                    showLeaderboard();
+                })
+                .catch((error) => {
+                    console.error("Error saving score:", error);
+                    alert("Failed to save score. Please try again.");
+                });
+        }
+
+        // Function to fetch and display the leaderboard
+        function showLeaderboard() {
+            console.log("Fetching leaderboard...");
+            fetch("http://localhost:4000/getLeaderboard")
+                .then((response) => {
+                    console.log("Response received:", response);
+                    return response.json();
+                })
+                .then((leaderboard) => {
+                    console.log("Leaderboard data:", leaderboard);
+                    let leaderboardHtml = "";
+                    leaderboard.forEach((entry, index) => {
+                        leaderboardHtml += `<li>${index + 1}. ${entry.name} - ${entry.score} pts</li>`;
+                    });
+
+                    document.getElementById("leaderboard-list").innerHTML = leaderboardHtml;
+                    document.getElementById("score-container").style.display = "none";
+                    document.getElementById("leaderboard").style.display = "block";
+                })
+                .catch((error) => {
+                    console.error("Error fetching leaderboard:", error);
+                    alert("Failed to load leaderboard. Please try again.");
+                });
+        }
+
+        // Restart the quiz
+        function restartQuiz() {
+            currentQuestionIndex = 0; // Reset question index
+            score = 0; // Reset score
+            document.getElementById("quiz").style.display = "inline-block"; // Show the quiz
+            document.getElementById("score-container").style.display = "none"; // Hide the score container
+            document.getElementById("leaderboard").style.display = "none"; // Hide the leaderboard
+            loadQuestion(); // Load the first question
+        }
+
+        // Load the first question when the page loads
+        loadQuestion();
+    </script>
+</body>
+</html>

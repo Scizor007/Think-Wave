@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Millikan's Oil Drop Experiment</title>
+    <link rel="stylesheet" href="chem.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Spacing Adjustments */
+        .page-title {
+            margin-top: 100px;
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the 3D Model */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #ffffff;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Millikan's Oil Drop Experiment</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe 
+            title="Millikan's Oil Drop Experiment" 
+            frameborder="0" allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking execution-while-out-of-viewport 
+            execution-while-not-rendered web-share 
+            src="https://sketchfab.com/models/f8639447aabc43fca9d4b12edf09553d/embed">
+        </iframe>
+    </div>
+
+    <p style="font-size: 13px; font-weight: normal; margin-top: 10px; text-align: center; color: #CCCCCC;"> 
+        <a href="https://sketchfab.com/3d-models/millikans-oil-drop-experiment-f8639447aabc43fca9d4b12edf09553d" 
+           target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Millikan's Oil Drop Experiment </a> 
+        by <a href="https://sketchfab.com/Elvera.Viljoen" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Vera4Art </a> 
+        on <a href="https://sketchfab.com" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+    </p>
+
+    <!-- Experiment Information -->
+    <div class="content">
+        <h2>Overview of the Experiment</h2>
+        <p>Millikan's Oil Drop Experiment, conducted by Robert A. Millikan in 1909, was designed to measure the charge of a single electron. This experiment provided strong evidence for the quantization of electric charge.</p>
+
+        <h2>Setup of the Experiment</h2>
+        <ul>
+            <li>A fine mist of oil droplets was sprayed into a chamber.</li>
+            <li>The droplets were allowed to fall under gravity between two electrically charged plates.</li>
+            <li>An adjustable electric field was applied to balance the gravitational force on the droplets.</li>
+            <li>By carefully measuring the voltage needed to suspend a droplet, Millikan determined the elementary charge.</li>
+        </ul>
+
+        <h2>Key Observations</h2>
+        <ul>
+            <li>Droplets moved at different rates when the electric field was adjusted.</li>
+            <li>The charge on each droplet was always a multiple of a fundamental value.</li>
+            <li>The smallest measurable charge was determined to be approximately 1.6 × 10⁻¹⁹ C, the charge of a single electron.</li>
+        </ul>
+
+        <h2>Conclusions and Impact</h2>
+        <p>The experiment confirmed the discrete nature of electric charge and provided a precise measurement of the electron's charge. This was a crucial step in the development of atomic and quantum physics.</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Tutor</title>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            color: white;
+        }
+        #map { height: 500px; width: 80%; margin-top: 20px; }
+        .popup-content { font-size: 14px; }
+        .filter-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        select {
+            font-size: 18px;
+            padding: 10px;
+        }
+        label {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Find a Tutor</h2>
+
+    <div class="filter-container">
+        <label for="cityFilter">Select City:</label>
+        <select id="cityFilter">
+            <option value="all">All Cities</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Hyderabad">Hyderabad</option>
+        </select>
+
+        <label for="subjectFilter">Select Subject:</label>
+        <select id="subjectFilter">
+            <option value="all">All Subjects</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Biology">Biology</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="History">History</option>
+            <option value="English">English</option>
+            <option value="Economics">Economics</option>
+            <option value="Political Science">Political Science</option>
+        </select>
+    </div>
+    
+    <div id="map"></div>
+    
+    <script>
+        var map = L.map('map').setView([20.5937, 78.9629], 5);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+        
+        var tutors = [];
+        var cities = [
+            { name: "Delhi", lat: 28.6139, lon: 77.2090 },
+            { name: "Mumbai", lat: 19.0760, lon: 72.8777 },
+            { name: "Bangalore", lat: 12.9716, lon: 77.5946 },
+            { name: "Chennai", lat: 13.0827, lon: 80.2707 },
+            { name: "Hyderabad", lat: 17.3850, lon: 78.4867 }
+        ];
+
+        function generateTutors() {
+            let subjects = ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science", "History", "English", "Economics", "Political Science"];
+            
+            let names = ["Dr. Aisha Khan", "Ms. Rekha Sharma", "Mr. Rakesh Mehta", "Dr. Suresh Bhatia", "Ms. Tanya Verma", "Mr. Vivek Anand", "Ms. Priya Malhotra", "Mr. Arjun Nair", "Dr. Meera Iyer", "Mr. Rohit Sen", "Ms. Nandini Kapoor", "Dr. Karan Desai", "Ms. Ritu Agarwal", "Mr. Sameer Joshi", "Dr. Alok Verma", "Ms. Shweta Roy", "Mr. Pranav Reddy", "Dr. Leela Menon", "Mr. Vishal Tiwari", "Ms. Pooja Shah", "Mr. Aditya Narayan", "Ms. Simran Das", "Dr. Rajat Bhardwaj", "Mr. Aman Gupta", "Ms. Sneha Dutta"];
+            
+            let descriptions = [
+                "An expert tutor with years of experience helping students excel in their subjects.",
+                "Passionate about teaching and mentoring students for academic success.",
+                "Focuses on conceptual clarity and problem-solving techniques.",
+                "Dedicated to making learning engaging and fun for students.",
+                "Specializes in preparing students for competitive exams.",
+                "Combines real-life examples with theoretical concepts for better understanding.",
+                "Loves guiding students through complex topics and making them easier to grasp."
+            ];
+            
+            let timings = ["9 AM - 12 PM", "2 PM - 5 PM", "6 PM - 9 PM", "10 AM - 1 PM", "3 PM - 6 PM", "7 PM - 10 PM"];
+            
+            for (let city of cities) {
+                for (let i = 0; i < 25; i++) {
+                    let tutor = {
+                        name: names[i % names.length],
+                        subject: subjects[i % subjects.length],
+                        city: city.name,
+                        email: `tutor${i}@example.com`,
+                        phone: `98765${1000 + i}`,
+                        experience: `${Math.floor(Math.random() * 15) + 5} years`,
+                        qualification: `M.Sc. in ${subjects[i % subjects.length]}`,
+                        availability: timings[i % timings.length],
+                        lat: city.lat + (Math.random() * 0.1 - 0.05),
+                        lon: city.lon + (Math.random() * 0.1 - 0.05),
+                        description: descriptions[i % descriptions.length]
+                    };
+                    tutors.push(tutor);
+                }
+            }
+        }
+
+        generateTutors();
+
+        var markers = [];
+
+        function updateMap(city, subject) {
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+
+            tutors.forEach(tutor => {
+                if ((city === 'all' || tutor.city === city) && (subject === 'all' || tutor.subject === subject)) {
+                    var marker = L.marker([tutor.lat, tutor.lon]).addTo(map)
+                        .bindPopup(`<div class='popup-content'><b>${tutor.name}</b><br>City: ${tutor.city}<br>Subject: ${tutor.subject}<br>Email: ${tutor.email}<br>Phone: ${tutor.phone}<br>Experience: ${tutor.experience}<br>Qualification: ${tutor.qualification}<br>Availability: ${tutor.availability}<br><br>${tutor.description}</div>`);
+                    markers.push(marker);
+                }
+            });
+
+            let cityData = cities.find(c => c.name === city);
+            if (cityData) {
+                map.setView([cityData.lat, cityData.lon], 10);
+            } else {
+                map.setView([20.5937, 78.9629], 5);
+            }
+        }
+
+        document.getElementById('cityFilter').addEventListener('change', function() {
+            updateMap(this.value, document.getElementById('subjectFilter').value);
+        });
+
+        document.getElementById('subjectFilter').addEventListener('change', function() {
+            updateMap(document.getElementById('cityFilter').value, this.value);
+        });
+
+        updateMap('all', 'all');
+    </script>
+</body>
+</html>

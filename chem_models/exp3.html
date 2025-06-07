@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cathode Ray Tube: Thomson's Experiment</title>
+    <link rel="stylesheet" href="chem.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Spacing Adjustments */
+        .page-title {
+            margin-top: 100px;
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the 3D Model */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #ffffff;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Cathode Ray Tube: Thomson's Experiment</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe 
+            title="Cathode Ray Tube: Thomson's experiment" 
+            frameborder="0" allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking execution-while-out-of-viewport 
+            execution-while-not-rendered web-share 
+            src="https://sketchfab.com/models/b37070a86e824de2a9a6092ab66c0252/embed">
+        </iframe>
+    </div>
+
+    <p style="font-size: 13px; font-weight: normal; margin-top: 10px; text-align: center; color: #CCCCCC;"> 
+        <a href="https://sketchfab.com/3d-models/cathode-ray-tube-thomsons-experiment-b37070a86e824de2a9a6092ab66c0252" 
+           target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Cathode Ray Tube: Thomson's Experiment </a> 
+        by <a href="https://sketchfab.com/Elvera.Viljoen" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Vera4Art </a> 
+        on <a href="https://sketchfab.com" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+    </p>
+
+    <!-- Experiment Information -->
+    <div class="content">
+        <h2>Overview of the Experiment</h2>
+        <p>J.J. Thomson's Cathode Ray Tube experiment, conducted in 1897, led to the discovery of the electron. This experiment demonstrated that cathode rays are composed of negatively charged particles, later called electrons.</p>
+
+        <h2>Setup of the Experiment</h2>
+        <ul>
+            <li>A glass tube was evacuated to remove most of the air.</li>
+            <li>A high voltage was applied between two electrodes inside the tube.</li>
+            <li>A glowing beam (cathode ray) was observed traveling from the cathode (-) to the anode (+).</li>
+            <li>Electric and magnetic fields were used to study the properties of the cathode rays.</li>
+        </ul>
+
+        <h2>Key Observations</h2>
+        <ul>
+            <li>Cathode rays were deflected by electric and magnetic fields, proving they carried a negative charge.</li>
+            <li>The charge-to-mass ratio (e/m) of these particles was found to be much smaller than that of hydrogen ions, indicating an extremely small particle.</li>
+            <li>This experiment provided direct evidence for the existence of electrons.</li>
+        </ul>
+
+        <h2>Conclusions and Impact</h2>
+        <p>Thomson's findings revolutionized atomic theory, proving that atoms were not indivisible and that subatomic particles existed. This paved the way for modern quantum physics and our understanding of atomic structure.</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

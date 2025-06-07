@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acid-Base Solutions</title>
+    <link rel="stylesheet" href="cheml.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Page Title */
+        .page-title {
+            margin-top: 100px; /* Space from taskbar */
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the 3D Model */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        /* Content Box Styling */
+        .content-box {
+            margin: 40px auto 60px; /* Adjusted margins for proper spacing */
+            width: 75%;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            background-color: rgba(0, 0, 0, 0.5); /* Subtle background for readability */
+            border-radius: 10px;
+        }
+
+        .content-box h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Acid-Base Solutions</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe src="https://phet.colorado.edu/sims/html/acid-base-solutions/latest/acid-base-solutions_en.html"
+        width="800"
+        height="600"
+        allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Content Box -->
+    <div class="content-box">
+        <h2>Understanding Acids and Bases</h2>
+        <p>
+            Acids and bases are fundamental components of chemistry. Acids, such as vinegar and lemon juice, release hydrogen ions (H⁺) in solution, making them sour and corrosive. Bases, such as baking soda and ammonia, release hydroxide ions (OH⁻), giving them a bitter taste and slippery feel.
+        </p>
+        <p>
+            The pH scale measures how acidic or basic a solution is, ranging from 0 (strong acid) to 14 (strong base), with 7 being neutral (pure water). This concept is crucial in chemistry, biology, medicine, and industry.
+        </p>
+
+        <h2>How the Simulation Works</h2>
+        <p>
+            The "Acid-Base Solutions" simulation allows you to explore how acids and bases interact in solution. You can:
+            <ul>
+                <li>Adjust the concentration of acids and bases.</li>
+                <li>Observe how the pH level changes.</li>
+                <li>Use different tools to measure acidity and alkalinity.</li>
+                <li>Understand neutralization reactions.</li>
+            </ul>
+        </p>
+        <p>
+            This interactive tool helps visualize acid-base chemistry concepts in an engaging way.
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kepler's Laws</title>
+    <link rel="stylesheet" href="phyl.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Page Title */
+        .page-title {
+            margin-top: 100px; /* Space from taskbar */
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the Simulation */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        /* Content Box Styling */
+        .content-box {
+            margin: 40px auto 60px;
+            width: 75%;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            background-color: rgba(0, 0, 0, 0.5); /* Subtle background for readability */
+            border-radius: 10px;
+        }
+
+        .content-box h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Kepler's Laws</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe src="https://phet.colorado.edu/sims/html/my-solar-system/latest/my-solar-system_en.html"
+        width="800"
+        height="600"
+        allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Content Box -->
+    <div class="content-box">
+        <h2>Understanding Kepler’s Laws</h2>
+        <p>
+            Kepler's Laws of Planetary Motion describe how planets move around the Sun. These laws were formulated by Johannes Kepler in the early 17th century and provide the foundation for modern orbital mechanics.
+        </p>
+
+        <h2>1. Law of Ellipses</h2>
+        <p>
+            *"The orbit of a planet around the Sun is an ellipse, with the Sun at one of the two foci."*
+            <br><br>
+            This means that planetary orbits are not perfect circles but slightly stretched-out ovals. The Sun is positioned off-center at one of the foci.
+        </p>
+
+        <h2>2. Law of Equal Areas</h2>
+        <p>
+            *"A line segment joining a planet and the Sun sweeps out equal areas in equal time intervals."*
+            <br><br>
+            This implies that planets move faster when they are closer to the Sun and slower when they are farther away. This law explains why seasons on Earth are of different lengths.
+        </p>
+
+        <h2>3. Law of Harmonies</h2>
+        <p>
+            *"The square of a planet’s orbital period (T²) is proportional to the cube of the semi-major axis (a³) of its orbit."*
+            <br><br>
+            In simple terms, planets farther from the Sun take much longer to complete an orbit than those closer to it. This law helps scientists predict planetary orbits and the motion of moons and exoplanets.
+        </p>
+
+        <h2>Real-Life Applications</h2>
+        <ul>
+            <li><strong>Satellite Orbits:</strong> Understanding how artificial satellites stay in orbit.</li>
+            <li><strong>Space Missions:</strong> Used for planning interplanetary travel (e.g., Mars missions).</li>
+            <li><strong>Predicting Eclipses:</strong> Helps in forecasting solar and lunar eclipses.</li>
+        </ul>
+
+        <h2>Explore the Simulation</h2>
+        <p>
+            Use this interactive simulation to:
+            <ul>
+                <li>Observe planetary orbits around a central star.</li>
+                <li>Change masses and positions of celestial bodies.</li>
+                <li>Understand how Kepler's laws apply to different orbital paths.</li>
+            </ul>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

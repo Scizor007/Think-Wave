@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Solar System</title>
+    <link rel="stylesheet" href="phyl.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Page Title */
+        .page-title {
+            margin-top: 100px; /* Space from taskbar */
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the Simulation */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        /* Content Box Styling */
+        .content-box {
+            margin: 40px auto 60px;
+            width: 75%;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            background-color: rgba(0, 0, 0, 0.5); /* Subtle background for readability */
+            border-radius: 10px;
+        }
+
+        .content-box h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">My Solar System</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe src="https://phet.colorado.edu/sims/html/my-solar-system/latest/my-solar-system_en.html"
+        width="800"
+        height="600"
+        allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Content Box -->
+    <div class="content-box">
+        <h2>Exploring Our Solar System</h2>
+        <p>
+            The Solar System consists of the Sun and everything bound to it by gravity—planets, moons, asteroids, and comets. The Sun, a massive ball of hot plasma, provides the energy necessary for life on Earth.
+        </p>
+
+        <h2>Planetary Arrangement</h2>
+        <p>
+            The planets in our Solar System are divided into two groups:
+            <ul>
+                <li><strong>Inner Planets (Terrestrial):</strong> Mercury, Venus, Earth, and Mars – Small, rocky, and dense.</li>
+                <li><strong>Outer Planets (Gas Giants):</strong> Jupiter, Saturn, Uranus, and Neptune – Large and composed mostly of gas.</li>
+            </ul>
+        </p>
+
+        <h2>Kepler's Laws and Planetary Motion</h2>
+        <p>
+            The movement of planets follows Kepler’s Laws of Motion:
+            <ul>
+                <li>Planets orbit the Sun in elliptical paths.</li>
+                <li>They move faster when closer to the Sun and slower when farther away.</li>
+                <li>The farther a planet is, the longer its orbital period.</li>
+            </ul>
+        </p>
+
+        <h2>Fun Facts About Our Solar System</h2>
+        <ul>
+            <li>Jupiter is the largest planet, while Mercury is the smallest.</li>
+            <li>Venus is the hottest planet, even though Mercury is closest to the Sun.</li>
+            <li>Neptune has the fastest winds, reaching speeds of up to 2,100 km/h.</li>
+        </ul>
+
+        <h2>Interactive Learning</h2>
+        <p>
+            Explore the simulation to:
+            <ul>
+                <li>Adjust orbital parameters and observe planetary motion.</li>
+                <li>Learn how mass and distance affect gravity.</li>
+                <li>Simulate different planetary systems and their interactions.</li>
+            </ul>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

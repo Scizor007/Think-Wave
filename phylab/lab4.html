@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faraday's Electromagnetic Lab</title>
+    <link rel="stylesheet" href="phyl.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Page Title */
+        .page-title {
+            margin-top: 100px; /* Space from taskbar */
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the Simulation */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        /* Content Box Styling */
+        .content-box {
+            margin: 40px auto 60px;
+            width: 75%;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            background-color: rgba(0, 0, 0, 0.5); /* Subtle background for readability */
+            border-radius: 10px;
+        }
+
+        .content-box h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Faraday's Electromagnetic Lab</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe src="https://phet.colorado.edu/sims/html/faradays-electromagnetic-lab/latest/faradays-electromagnetic-lab_en.html"
+        width="800"
+        height="600"
+        allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Content Box -->
+    <div class="content-box">
+        <h2>Understanding Faraday’s Law</h2>
+        <p>
+            Faraday’s Law describes how a changing magnetic field can induce an electric current in a conductor. This principle is the foundation of electromagnetic induction, which powers generators, transformers, and electric motors.
+        </p>
+
+        <h2>Key Concepts</h2>
+        <p>
+            <ul>
+                <li>Electromagnetic Induction: Moving a magnet through a coil generates electricity.</li>
+                <li>Flux Change: The faster the change in magnetic flux, the stronger the induced current.</li>
+                <li>Direction of Current: Determined by Lenz’s Law, which states that the induced current opposes the change in flux.</li>
+            </ul>
+        </p>
+
+        <h2>Real-World Applications</h2>
+        <p>
+            <ul>
+                <li>Power generation in hydroelectric dams and wind turbines.</li>
+                <li>Wireless charging of smartphones and electric vehicles.</li>
+                <li>Magnetic levitation (MagLev) trains use this principle for propulsion.</li>
+            </ul>
+        </p>
+
+        <h2>Explore the Simulation</h2>
+        <p>
+            <ul>
+                <li>Move a magnet through a coil and observe induced current.</li>
+                <li>Adjust coil properties to see how different factors affect induction.</li>
+                <li>Experiment with multiple coils and changing field strengths.</li>
+            </ul>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

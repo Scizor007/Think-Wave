@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology Virtual Lab</title>
+    <link rel="stylesheet" href="biol.css"> 
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+</head>
+
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Biology Virtual Lab</h1>
+
+    <!-- Placeholder for content -->
+    <div class="content">
+        <a href="lab1.html" class="model-button">Color Vision</a>
+        <a href="lab2.html" class="model-button">Neuron</a>
+        <a href="lab3.html" class="model-button">Natural Selection</a>
+        <a href="lab4.html" class="model-button">Gene Expression Essentials</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../taskbar.html")  // Move up one level to find it
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading taskbar:", error));
+        });
+    </script>
+    
+
+</body>
+</html>

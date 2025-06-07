@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Models</title>
+    <link rel="stylesheet" href="models.css"> <!-- External CSS -->
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <video autoplay muted loop class="video-bg">
+        <source src="background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Buttons for different categories -->
+    <div class="transparent-container">
+        <h2>Explore 3D Models!</h2>
+
+        <p>
+            Step into an interactive learning experience with <strong>realistic 3D models</strong> designed to bring concepts to life! Whether you're exploring the microscopic world of cells, the structure of molecules, or the fundamentals of physics, these models provide a <strong>visual and hands-on</strong> approach to learning.
+        </p>
+
+        <h3>🔹 Why Use 3D Models?</h3>
+        <ul>
+            <li>✅ <strong>Better Visualization</strong> – Understand complex structures by rotating and zooming in on models.</li>
+            <li>✅ <strong>Interactive Learning</strong> – Engage with concepts in a way that textbooks can’t provide.</li>
+            <li>✅ <strong>Immersive Experience</strong> – Feel like you're inside the subject with lifelike 3D representations.</li>
+            <li>✅ <strong>Applicable for All Levels</strong> – Whether you're a beginner or an advanced learner, 3D models make learning easier and more fun.</li>
+        </ul>
+
+        <h3>🔹 What Can You Explore?</h3>
+        <ul>
+            <li>🔸 <strong>Biology</strong> – Discover the structures of cells, organs, and biological systems.</li>
+            <li>🔸 <strong>Chemistry</strong> – Visualize molecular structures, atomic bonds, and chemical reactions.</li>
+            <li>🔸 <strong>Physics</strong> – Explore forces, motion, and fundamental principles in an interactive way.</li>
+        </ul>
+
+        <p><strong>💡 Click on a category below to start exploring and bring learning to life! 🚀</strong></p>
+
+        <div class="model-container">
+            <a href="bio_models/bio.html" class="model-button">Biology</a>
+            <a href="chem_models/chem.html" class="model-button">Chemistry</a>
+            <a href="phy_models/phy.html" class="model-button">Physics</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+
+</body>
+</html>

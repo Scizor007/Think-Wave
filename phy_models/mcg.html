@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Coil Galvanometer</title>
+    <link rel="stylesheet" href="phy.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        .page-title {
+            margin-top: 100px;
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px;
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #ffffff;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Moving Coil Galvanometer</h1>
+
+    <div class="sketchfab-embed-wrapper">
+        <iframe title="Moving coil galvanometer physics" frameborder="0" allowfullscreen 
+            mozallowfullscreen="true" webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking execution-while-out-of-viewport 
+            execution-while-not-rendered web-share 
+            src="https://sketchfab.com/models/445413d65bd34d3f8b94f5a3b4681ed7/embed">
+        </iframe>
+    </div>
+
+    <p style="font-size: 13px; font-weight: normal; margin-top: 10px; text-align: center; color: #CCCCCC;"> 
+        <a href="https://sketchfab.com/3d-models/moving-coil-galvanometer-physics-445413d65bd34d3f8b94f5a3b4681ed7" 
+           target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Moving Coil Galvanometer </a> 
+        by <a href="https://sketchfab.com/visualpathshala" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> VisualPathshala </a> 
+        on <a href="https://sketchfab.com" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+    </p>
+
+    <div class="content">
+        <h2>What is a Moving Coil Galvanometer?</h2>
+        <p>A moving coil galvanometer is an electromechanical instrument used to detect and measure small electric currents. It operates on the principle of torque acting on a current-carrying coil in a magnetic field.</p>
+
+        <h2>Working Principle</h2>
+        <p>The device consists of a rectangular coil of wire suspended in a uniform magnetic field. When current flows through the coil, it experiences a torque, causing it to rotate. The deflection is proportional to the current, which can be read using a pointer and scale.</p>
+
+        <h2>Components of a Moving Coil Galvanometer</h2>
+        <ul>
+            <li><strong>Coil:</strong> A lightweight rectangular coil wound on a non-magnetic frame.</li>
+            <li><strong>Magnetic Field:</strong> Provided by a permanent magnet.</li>
+            <li><strong>Suspension:</strong> A thin wire or ribbon that provides restoring torque.</li>
+            <li><strong>Pointer & Scale:</strong> Displays the deflection of the coil.</li>
+        </ul>
+
+        <h2>Applications</h2>
+        <ul>
+            <li>Used to measure small electrical currents.</li>
+            <li>Serves as the basis for ammeters and voltmeters.</li>
+            <li>Used in analog measuring instruments.</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bacterial Cell</title>
+    <link rel="stylesheet" href="bio.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .page-title {
+            margin-top: 100px;
+            font-size: 32px;
+            text-align: center;
+            color: #ffcc00;
+        }
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        iframe {
+            width: 800px;
+            height: 550px;
+            border-radius: 10px;
+            border: none;
+        }
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        .content h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 25px;
+            color: #ffcc00;
+        }
+        .content ul {
+            margin-left: 20px;
+            list-style-type: square;
+        }
+        .footer {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 14px;
+            color: #CCCCCC;
+        }
+        .footer a {
+            color: #1CAAD9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Bacterial Cell</h1>
+
+    <div class="sketchfab-embed-wrapper">
+        <iframe 
+            title="Biology Bacterial Cell" 
+            frameborder="0" allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking execution-while-out-of-viewport 
+            execution-while-not-rendered web-share 
+            src="https://sketchfab.com/models/4dfd9fde978d44358e1ae74f9ae93042/embed">
+        </iframe>
+    </div>
+
+    <p class="footer"> 
+        <a href="https://sketchfab.com/3d-models/biology-bacterial-cell-4dfd9fde978d44358e1ae74f9ae93042" target="_blank" rel="nofollow">Biology Bacterial Cell</a>
+        by <a href="https://sketchfab.com/pavelmo4alov" target="_blank" rel="nofollow">pavelmo4alov</a>
+        on <a href="https://sketchfab.com" target="_blank" rel="nofollow">Sketchfab</a>
+    </p>
+
+    <div class="content">
+        <h2>Bacteria Definition</h2>
+        <p>“Bacteria are unicellular organisms belonging to the prokaryotic group where the organisms lack a few organelles and a true nucleus.”</p>
+
+        <h2>Ultrastructure of a Bacterial Cell</h2>
+        <p>Bacteria are single-celled microorganisms with a simple structure, lacking a nucleus and membrane-bound organelles. They have a cell wall composed of peptidoglycan, providing structural support.</p>
+
+        <h2>Types of Bacteria Based on Shape</h2>
+        <ul>
+            <li><strong>Bacillus (Rod-shaped):</strong> Escherichia coli (E. coli)</li>
+            <li><strong>Spirilla (Spiral):</strong> Spirillum volutans</li>
+            <li><strong>Coccus (Sphere):</strong> Streptococcus pneumoniae</li>
+            <li><strong>Vibrio (Comma-shaped):</strong> Vibrio cholerae</li>
+        </ul>
+
+        <h2>Classification Based on Cell Wall Composition</h2>
+        <ul>
+            <li><strong>Gram-positive bacteria:</strong> Thick peptidoglycan cell wall</li>
+            <li><strong>Gram-negative bacteria:</strong> Lipopolysaccharide cell wall</li>
+        </ul>
+
+        <h2>Reproduction in Bacteria</h2>
+        <p>Bacteria reproduce asexually through binary fission, where a single bacterium divides into two identical daughter cells.</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading taskbar:", error));
+        });
+    </script>
+<button class="button" id="quiz">Take quiz >>></button>
+<script>
+    document.getElementById("quiz").addEventListener("click", function () {
+        window.location.href = "bacterialcellQ.html"; // Redirect to the quiz page
+    });
+</script>
+</body>
+</html>

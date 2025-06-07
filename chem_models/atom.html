@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atomic Structure Model</title>
+    <link rel="stylesheet" href="chem.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Spacing Adjustments */
+        .page-title {
+            margin-top: 100px; /* Space from taskbar */
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the 3D Model */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #ffffff;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Atomic Structure 3D Model</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe 
+            title="Chemistry_Atomic structure" 
+            frameborder="0" allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking execution-while-out-of-viewport 
+            execution-while-not-rendered web-share 
+            src="https://sketchfab.com/models/329e3e423749420db86334947999061f/embed">
+        </iframe>
+    </div>
+
+    <p style="font-size: 13px; font-weight: normal; margin-top: 10px; text-align: center; color: #CCCCCC;"> 
+        <a href="https://sketchfab.com/3d-models/chemistry-atomic-structure-329e3e423749420db86334947999061f" 
+           target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Chemistry_Atomic Structure </a> 
+        by <a href="https://sketchfab.com/pugar.wulandari" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> pugar.wulandari </a> 
+        on <a href="https://sketchfab.com" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+    </p>
+
+    <!-- Atomic Structure Information -->
+    <div class="content">
+        <h2>What is Atomic Structure?</h2>
+        <p>The atomic structure refers to the composition and arrangement of subatomic particles within an atom. It consists of a central nucleus, which contains protons and neutrons, surrounded by electrons that orbit in defined energy levels.</p>
+
+        <h2>Components of an Atom</h2>
+        <ul>
+            <li><strong>Protons (p⁺):</strong> Positively charged particles found in the nucleus.</li>
+            <li><strong>Neutrons (n⁰):</strong> Neutral particles located in the nucleus, contributing to atomic mass.</li>
+            <li><strong>Electrons (e⁻):</strong> Negatively charged particles that revolve around the nucleus in different energy levels.</li>
+        </ul>
+
+        <h2>Atomic Models Over Time</h2>
+        <p>Scientists have proposed different models to explain the structure of an atom:</p>
+        <ul>
+            <li><strong>Dalton’s Model (1803):</strong> Atoms were considered indivisible solid spheres.</li>
+            <li><strong>Thomson’s Model (1897):</strong> “Plum pudding model” where electrons are embedded in a positively charged sphere.</li>
+            <li><strong>Rutherford’s Model (1911):</strong> Discovered the nucleus and stated that electrons revolve around it.</li>
+            <li><strong>Bohr’s Model (1913):</strong> Electrons move in fixed orbits or energy levels.</li>
+            <li><strong>Quantum Mechanical Model (1926-Present):</strong> Uses probability distributions to describe electron locations.</li>
+        </ul>
+
+        <h2>Energy Levels and Electron Configuration</h2>
+        <p>Electrons occupy different energy levels (shells) around the nucleus. Each shell has a maximum capacity:</p>
+        <ul>
+            <li>K Shell (n=1): 2 electrons</li>
+            <li>L Shell (n=2): 8 electrons</li>
+            <li>M Shell (n=3): 18 electrons</li>
+            <li>N Shell (n=4): 32 electrons</li>
+        </ul>
+
+        <h2>Interesting Facts About Atoms</h2>
+        <ul>
+            <li>Atoms are mostly empty space.</li>
+            <li>The nucleus contains almost all of an atom’s mass.</li>
+            <li>Electrons move at speeds close to that of light.</li>
+            <li>Every element has a unique atomic number, which represents the number of protons.</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

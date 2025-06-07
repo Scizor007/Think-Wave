@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskbar</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .taskbar {
+            width: 100%;
+            height: 60px;
+            background-color: #8c2731;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        .left-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+            margin-right: 15px;
+            animation: spin-left-right 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes spin-left-right {
+            0% { transform: rotate(-10deg); }
+            100% { transform: rotate(10deg); }
+        }
+
+        .team-name {
+            font-family: 'Press Start 2P', cursive;
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .team-name:hover {
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="taskbar">
+        <div class="left-section">
+            <img src="logo.png" alt="Logo" class="logo">
+            <a href="index.html" class="team-name">Infinite Loop</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electromagnetic Wave</title>
+    <link rel="stylesheet" href="phy.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        .page-title {
+            margin-top: 100px;
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px;
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #ffffff;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Electromagnetic Wave</h1>
+
+    <div class="sketchfab-embed-wrapper">
+        <iframe title="An electromagnetic wave" frameborder="0" allowfullscreen 
+            mozallowfullscreen="true" webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking execution-while-out-of-viewport 
+            execution-while-not-rendered web-share 
+            src="https://sketchfab.com/models/a7e7f0e0b22d4828bbadf3717541d7d2/embed">
+        </iframe>
+    </div>
+
+    <p style="font-size: 13px; font-weight: normal; margin-top: 10px; text-align: center; color: #CCCCCC;"> 
+        <a href="https://sketchfab.com/3d-models/an-electromagnetic-wave-a7e7f0e0b22d4828bbadf3717541d7d2" 
+           target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> An Electromagnetic Wave </a> 
+        by <a href="https://sketchfab.com/famousandfaded" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> famousandfaded </a> 
+        on <a href="https://sketchfab.com" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+    </p>
+
+    <div class="content">
+        <h2>What is an Electromagnetic Wave?</h2>
+        <p>Electromagnetic waves are waves that consist of oscillating electric and magnetic fields and propagate through space at the speed of light. These waves do not require a medium to travel and can move through a vacuum.</p>
+
+        <h2>Characteristics of Electromagnetic Waves</h2>
+        <ul>
+            <li>They consist of perpendicular electric and magnetic fields.</li>
+            <li>Travel at the speed of light in a vacuum (approximately 3 × 10⁸ m/s).</li>
+            <li>Do not require a medium for propagation.</li>
+            <li>Exhibit wave-particle duality.</li>
+        </ul>
+
+        <h2>Types of Electromagnetic Waves</h2>
+        <ul>
+            <li><strong>Radio Waves:</strong> Used in communication systems.</li>
+            <li><strong>Microwaves:</strong> Used in radar and cooking appliances.</li>
+            <li><strong>Infrared Waves:</strong> Used in thermal imaging and remote controls.</li>
+            <li><strong>Visible Light:</strong> The only part of the spectrum visible to the human eye.</li>
+            <li><strong>Ultraviolet Light:</strong> Can cause sunburns and is used in sterilization.</li>
+            <li><strong>X-rays:</strong> Used in medical imaging.</li>
+            <li><strong>Gamma Rays:</strong> Emitted by radioactive substances and used in cancer treatment.</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

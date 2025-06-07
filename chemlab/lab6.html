@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pH Scale: Basics</title>
+    <link rel="stylesheet" href="cheml.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Page Title */
+        .page-title {
+            margin-top: 100px; /* Space from taskbar */
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the Simulation */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        /* Content Box Styling */
+        .content-box {
+            margin: 40px auto 60px;
+            width: 75%;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            background-color: rgba(0, 0, 0, 0.5); /* Subtle background for readability */
+            border-radius: 10px;
+        }
+
+        .content-box h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">pH Scale: Basics</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe src="https://phet.colorado.edu/sims/html/ph-scale-basics/latest/ph-scale-basics_en.html"
+        width="800"
+        height="600"
+        allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Content Box -->
+    <div class="content-box">
+        <h2>Understanding the pH Scale</h2>
+        <p>
+            The pH scale is used to measure how acidic or basic a substance is. It ranges from 0 to 14:
+        </p>
+
+        <h2>pH Scale Breakdown</h2>
+        <ul>
+            <li><strong>Acids (pH 0-6):</strong> These substances release hydrogen ions (H⁺) in a solution. Example: Lemon juice, vinegar.</li>
+            <li><strong>Neutral (pH 7):</strong> Pure water is a neutral substance, meaning it has a balanced number of H⁺ and OH⁻ ions.</li>
+            <li><strong>Bases (pH 8-14):</strong> These substances release hydroxide ions (OH⁻) in a solution. Example: Soap, baking soda.</li>
+        </ul>
+
+        <h2>Exploring the Simulation</h2>
+        <p>
+            This interactive simulation allows you to:
+            <ul>
+                <li>Test different liquids and see their pH values.</li>
+                <li>Observe how acidic and basic solutions react.</li>
+                <li>Understand how pH affects real-world substances.</li>
+            </ul>
+        </p>
+        <p>
+            The pH scale is crucial in chemistry, biology, medicine, and environmental science.
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Labs</title>
+    <link rel="stylesheet" href="vlab.css"> <!-- External CSS -->
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <video autoplay muted loop class="video-bg">
+        <source src="background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Buttons for different categories -->
+    <div class="transparent-container">
+        <h2>Explore Virtual Labs!</h2>
+        
+        <p class="lab-description">
+            Step into our <strong>Virtual Lab</strong>, where science comes to life! Experience 
+            <strong>interactive simulations</strong>, visualize complex concepts, and conduct experiments safely from anywhere.
+        </p>
+
+        <p class="lab-description">
+            <strong>Why Use the Virtual Lab?</strong><br>
+            ✅ <strong>Hands-on Learning</strong>: Conduct experiments <em>without physical equipment</em>.<br>
+            ✅ <strong>Safe & Accessible</strong>: Explore <em>scientific principles</em> without risks.<br>
+            ✅ <strong>Real-time Interaction</strong>: Change variables and see <em>instant results</em>.<br>
+            ✅ <strong>Learn at Your Own Pace</strong>: Pause, reset, and repeat as needed.<br>
+        </p>
+
+        <p class="lab-description">
+            <strong>Curious Minds, Get Ready!</strong><br>
+            Start exploring now and turn <strong>theoretical knowledge into practical understanding</strong>. 🚀
+        </p>
+
+        <div class="model-container">
+            <a href="biolab/biol.html" class="model-button">Biology</a>
+            <a href="chemlab/cheml.html" class="model-button">Chemistry</a>
+            <a href="phylab/phyl.html" class="model-button">Physics</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+
+</body>
+</html>

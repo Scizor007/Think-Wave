@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Cell Quiz</title>
+    <style>
+        /* Same styling as above */
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .quiz-container, .leaderboard-container, .score-container {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            width: 50%;
+            margin-top: 20px;
+        }
+        .question {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .option {
+            background-color: gray;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            width: 80%;
+            cursor: pointer;
+            text-align: left;
+            font-size: 16px;
+            display: block;
+            border-radius: 5px;
+        }
+        .option:hover {
+            background-color: #555;
+        }
+        .correct {
+            background-color: green !important;
+        }
+        .wrong {
+            background-color: red !important;
+        }
+        #next-btn {
+            display: none;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .leaderboard-container, .score-container {
+            margin-top: 20px;
+            display: none;
+        }
+        #restart-btn {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Plant Cell Quiz</h1>
+
+    <!-- Quiz Container -->
+    <div class="quiz-container" id="quiz">
+        <div id="question" class="question"></div>
+        <div id="options"></div>
+        <div id="feedback"></div>
+        <button id="next-btn" onclick="nextQuestion()">Next</button>
+    </div>
+
+    <!-- Score Container -->
+    <div class="score-container" id="score-container">
+        <h2>Your Score: <span id="final-score"></span></h2>
+        <h2>Time Taken: <span id="time-taken"></span> seconds</h2>
+        <button onclick="saveScore()">Save Score</button>
+        <button onclick="showLeaderboard()">View Leaderboard</button>
+    </div>
+
+    <!-- Leaderboard Container -->
+    <div class="leaderboard-container" id="leaderboard">
+        <h2>Leaderboard</h2>
+        <ul id="leaderboard-list"></ul>
+        <button id="restart-btn" onclick="restartQuiz()">Restart Quiz</button>
+    </div>
+
+    <script>
+        // Quiz questions
+        const questions = [
+            { question: "What is the main component of a plant cell wall?", options: ["Cellulose", "Peptidoglycan", "Chitin", "Lipid Bilayer"], correct: 0 },
+            { question: "Which organelle is responsible for photosynthesis in plant cells?", options: ["Mitochondria", "Chloroplast", "Nucleus", "Ribosome"], correct: 1 },
+            { question: "What is the function of the vacuole in a plant cell?", options: ["Protein Synthesis", "Energy Production", "Storage", "DNA Replication"], correct: 2 },
+            { question: "Which structure is unique to plant cells?", options: ["Cell Wall", "Nucleus", "Ribosome", "Mitochondria"], correct: 0 },
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let answered = false;
+        let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
+        let startTime;
+        let endTime;
+
+        function startTimer() {
+            startTime = new Date();
+        }
+
+        function calculateTimeTaken() {
+            endTime = new Date();
+            const timeDiff = (endTime - startTime) / 1000;
+            return timeDiff.toFixed(2);
+        }
+
+        function loadQuestion() {
+            let q = questions[currentQuestionIndex];
+            document.getElementById("question").innerText = q.question;
+            let optionsHtml = "";
+            q.options.forEach((option, index) => {
+                optionsHtml += `<button class="option" onclick="checkAnswer(${index})">${option}</button>`;
+            });
+            document.getElementById("options").innerHTML = optionsHtml;
+            document.getElementById("feedback").innerHTML = "";
+            document.getElementById("next-btn").style.display = "none";
+            answered = false;
+        }
+
+        function checkAnswer(selectedIndex) {
+            if (answered) return;
+            answered = true;
+
+            let correctIndex = questions[currentQuestionIndex].correct;
+            let options = document.querySelectorAll(".option");
+
+            options[selectedIndex].classList.add(selectedIndex === correctIndex ? "correct" : "wrong");
+
+            if (selectedIndex === correctIndex) {
+                score += 2;
+                document.getElementById("feedback").innerHTML = `<span style="color: lightgreen;">Correct! +2</span>`;
+            } else {
+                document.getElementById("feedback").innerHTML = `<span style="color: orange;">Wrong! The correct answer is: ${questions[currentQuestionIndex].options[correctIndex]}</span>`;
+                options[correctIndex].classList.add("correct");
+            }
+
+            document.getElementById("next-btn").style.display = "inline-block";
+            disableOptions();
+        }
+
+        function disableOptions() {
+            let options = document.querySelectorAll(".option");
+            options.forEach(option => option.disabled = true);
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                showScore();
+            }
+        }
+
+        function showScore() {
+            const timeTaken = calculateTimeTaken();
+            document.getElementById("quiz").style.display = "none";
+            document.getElementById("score-container").style.display = "block";
+            document.getElementById("final-score").innerText = score;
+            document.getElementById("time-taken").innerText = timeTaken;
+        }
+
+        function saveScore() {
+            const timeTaken = calculateTimeTaken();
+            let username = prompt("Enter your name:");
+            if (!username) return;
+
+            leaderboard.push({ name: username, score, time: parseFloat(timeTaken) });
+            leaderboard.sort((a, b) => {
+                if (b.score === a.score) {
+                    return a.time - b.time;
+                }
+                return b.score - a.score;
+            });
+            localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
+
+            alert("Score saved! You can now view the leaderboard.");
+        }
+
+        function showLeaderboard() {
+            document.getElementById("score-container").style.display = "none";
+            document.getElementById("leaderboard").style.display = "block";
+
+            let leaderboardHtml = "";
+            leaderboard.forEach((entry, index) => {
+                leaderboardHtml += `<li>${index + 1}. ${entry.name} - ${entry.score} pts (${entry.time} sec)</li>`;
+            });
+
+            document.getElementById("leaderboard-list").innerHTML = leaderboardHtml;
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById("quiz").style.display = "inline-block";
+            document.getElementById("score-container").style.display = "none";
+            document.getElementById("leaderboard").style.display = "none";
+            startTimer();
+            loadQuestion();
+        }
+
+        startTimer();
+        loadQuestion();
+    </script>
+</body>
+</html>

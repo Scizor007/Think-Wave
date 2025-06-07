@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build a Nucleus</title>
+    <link rel="stylesheet" href="cheml.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Page Title */
+        .page-title {
+            margin-top: 100px; /* Space from taskbar */
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the 3D Model */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        /* Content Box Styling */
+        .content-box {
+            margin: 40px auto 60px; /* Adjusted margins for proper spacing */
+            width: 75%;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            background-color: rgba(0, 0, 0, 0.5); /* Subtle background for readability */
+            border-radius: 10px;
+        }
+
+        .content-box h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Build a Nucleus</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe src="https://phet.colorado.edu/sims/html/build-a-nucleus/latest/build-a-nucleus_en.html"
+        width="800"
+        height="600"
+        allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Content Box -->
+    <div class="content-box">
+        <h2>Understanding Atomic Nuclei</h2>
+        <p>
+            Atoms are the fundamental building blocks of matter, and at their core lies the nucleus, which contains protons and neutrons. The number of protons in the nucleus determines the element, while the number of neutrons influences isotopes of the same element.
+        </p>
+        <p>
+            In nuclear physics, understanding how protons and neutrons interact helps explain the forces that hold the nucleus together. The strong nuclear force counteracts the repulsion between positively charged protons, ensuring atomic stability.
+        </p>
+        <h2>How the Simulation Works</h2>
+        <p>
+            The "Build a Nucleus" simulation allows you to experiment with creating different atomic nuclei by adding or removing protons and neutrons. Through this interactive tool, you can explore concepts such as nuclear stability, isotopes, and radioactive decay.
+        </p>
+        <p>
+            By adjusting the number of protons and neutrons, you can observe how atomic nuclei behave under different conditions and learn about fundamental principles of nuclear chemistry and physics.
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

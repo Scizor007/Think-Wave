@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditory System</title>
+    <link rel="stylesheet" href="bio.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .page-title {
+            margin-top: 100px;
+            font-size: 32px;
+            text-align: center;
+            color: #ffcc00;
+        }
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        iframe {
+            width: 800px;
+            height: 550px;
+            border-radius: 10px;
+            border: none;
+        }
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        .content h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 25px;
+            color: #ffcc00;
+        }
+        .content ul {
+            margin-left: 20px;
+            list-style-type: square;
+        }
+        .footer {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 14px;
+            color: #CCCCCC;
+        }
+        .footer a {
+            color: #1CAAD9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Auditory System</h1>
+
+    <div class="sketchfab-embed-wrapper">
+        <iframe 
+            title="Auditory system (Ear - Biology)" 
+            frameborder="0" allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking execution-while-out-of-viewport 
+            execution-while-not-rendered web-share 
+            src="https://sketchfab.com/models/c5a0e016fe23493e912a34487251396c/embed">
+        </iframe>
+    </div>
+
+    <p class="footer"> 
+        <a href="https://sketchfab.com/3d-models/auditory-system-ear-biology-c5a0e016fe23493e912a34487251396c" target="_blank" rel="nofollow">Auditory System (Ear - Biology)</a>
+        by <a href="https://sketchfab.com/kifir" target="_blank" rel="nofollow">KIFIR</a>
+        on <a href="https://sketchfab.com" target="_blank" rel="nofollow">Sketchfab</a>
+    </p>
+
+    <div class="content">
+        <h2>What is the Auditory System?</h2>
+        <p>The auditory system is responsible for the sense of hearing. It consists of the outer ear, middle ear, inner ear, and the neural pathways that process sound in the brain.</p>
+
+        <h2>Structure of the Auditory System</h2>
+        <ul>
+            <li><strong>Outer Ear:</strong> Includes the pinna and the ear canal, which collect and direct sound waves toward the eardrum.</li>
+            <li><strong>Middle Ear:</strong> Contains the ossicles (malleus, incus, and stapes), which amplify sound vibrations and transmit them to the inner ear.</li>
+            <li><strong>Inner Ear:</strong> Houses the cochlea, a spiral-shaped structure filled with fluid and hair cells that convert sound vibrations into electrical signals.</li>
+            <li><strong>Auditory Nerve:</strong> Transmits the electrical signals from the cochlea to the brain.</li>
+            <li><strong>Brain (Auditory Cortex):</strong> Processes sound signals, allowing us to interpret speech, music, and environmental sounds.</li>
+        </ul>
+
+        <h2>How Hearing Works</h2>
+        <p>Sound waves enter the ear canal, causing the eardrum to vibrate. These vibrations are amplified by the ossicles and transmitted to the cochlea, where they are converted into neural signals. The auditory nerve then carries these signals to the brain, which interprets them as sound.</p>
+
+        <h2>Common Hearing Disorders</h2>
+        <ul>
+            <li><strong>Conductive Hearing Loss:</strong> Caused by blockages or damage in the outer or middle ear, preventing sound from reaching the inner ear.</li>
+            <li><strong>Sensorineural Hearing Loss:</strong> Occurs due to damage to the cochlea or auditory nerve, often caused by aging, loud noise exposure, or infections.</li>
+            <li><strong>Tinnitus:</strong> The perception of ringing or buzzing sounds in the absence of external noise.</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading taskbar:", error));
+        });
+    </script>
+<button class="button" id="quiz">Take quiz >>></button>
+<script>
+    document.getElementById("quiz").addEventListener("click", function () {
+        window.location.href = "auditorysysQ.html"; // Redirect to the quiz page
+    });
+</script>
+</body>
+</html>

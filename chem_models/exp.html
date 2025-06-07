@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geiger-Marsden Experiment</title>
+    <link rel="stylesheet" href="chem.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Spacing Adjustments */
+        .page-title {
+            margin-top: 100px;
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the 3D Model */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #ffffff;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Geiger-Marsden (Rutherford Gold Foil) Experiment</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe 
+            title="Rutherford Geiger-Marsden Experiment" 
+            frameborder="0" allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking execution-while-out-of-viewport 
+            execution-while-not-rendered web-share 
+            src="https://sketchfab.com/models/561a0cfeba054ef093aa7342d5930d8e/embed">
+        </iframe>
+    </div>
+
+    <p style="font-size: 13px; font-weight: normal; margin-top: 10px; text-align: center; color: #CCCCCC;"> 
+        <a href="https://sketchfab.com/3d-models/rutherford-geiger-marsden-experiment-561a0cfeba054ef093aa7342d5930d8e" 
+           target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Rutherford Geiger-Marsden Experiment </a> 
+        by <a href="https://sketchfab.com/arloopa" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> arloopa </a> 
+        on <a href="https://sketchfab.com" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+    </p>
+
+    <!-- Experiment Information -->
+    <div class="content">
+        <h2>Overview of the Experiment</h2>
+        <p>The Geiger-Marsden experiment, also known as the Rutherford Gold Foil Experiment, was conducted in 1909 by Hans Geiger and Ernest Marsden under the supervision of Ernest Rutherford. The experiment led to the discovery of the atomic nucleus.</p>
+
+        <h2>Setup of the Experiment</h2>
+        <ul>
+            <li>A thin gold foil (only a few atoms thick) was used as the target.</li>
+            <li>Alpha particles (helium nuclei) were directed at the gold foil.</li>
+            <li>A fluorescent screen was placed around the foil to detect the scattered particles.</li>
+        </ul>
+
+        <h2>Key Observations</h2>
+        <ul>
+            <li>Most alpha particles passed through the foil without deflection.</li>
+            <li>Some particles were deflected at small angles.</li>
+            <li>A few particles were deflected at large angles, even bouncing straight back.</li>
+        </ul>
+
+        <h2>Conclusions and Impact</h2>
+        <p>The experiment provided strong evidence for the existence of a dense, positively charged nucleus at the center of the atom. This led to the rejection of the "plum pudding" model and the development of the Rutherford atomic model.</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

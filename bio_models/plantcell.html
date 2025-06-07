@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Cell</title>
+    <link rel="stylesheet" href="bio.css"> <!-- Using the same styling -->
+    <link rel="icon" type="image/png" href="../favicon.png"> <!-- Ensure you have a favicon -->
+    <style>
+        .page-title {
+            margin-top: 100px;
+            font-size: 28px;
+            color: yellow;
+        }
+
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px;
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #ffffff;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Plant Cell</h1>
+
+    <div class="sketchfab-embed-wrapper">
+        <iframe 
+        title="Biology Plant Cell" 
+        frameborder="0" 
+        allowfullscreen 
+        mozallowfullscreen="true" 
+        webkitallowfullscreen="true" 
+        allow="autoplay; fullscreen; xr-spatial-tracking" 
+        src="https://sketchfab.com/models/0d87fbe2581b4cabae809bd6aaa7d56b/embed">
+    </iframe>
+    
+    </div>
+
+    <div class="content">
+        <h2>Plant Cell Definition</h2>
+        <p>“A plant cell is a eukaryotic cell present in green plants, photosynthetic eukaryotes of the kingdom Plantae. It is distinguished by its rigid cell wall and the presence of chloroplasts.”</p>
+
+        <h2>Explanation</h2>
+        <p>Plant cells are typically rectangular or square-shaped due to the presence of a rigid cell wall. They play a vital role in photosynthesis and other essential plant functions.</p>
+
+        <h2>Plant Cell Structure</h2>
+        <p>Plant cells have unique features that differentiate them from animal cells. Some of the key organelles include:</p>
+        
+        <ul>
+            <li><strong>Cell Wall:</strong> Provides structural support and protection.</li>
+            <li><strong>Cell Membrane:</strong> Regulates the entry and exit of substances.</li>
+            <li><strong>Chloroplasts:</strong> Contains chlorophyll for photosynthesis.</li>
+            <li><strong>Nucleus:</strong> The control center of the cell containing genetic material.</li>
+            <li><strong>Vacuole:</strong> Stores nutrients and maintains cell turgor pressure.</li>
+            <li><strong>Mitochondria:</strong> Generates energy for the cell.</li>
+            <li><strong>Endoplasmic Reticulum (ER):</strong> Facilitates the transport of materials.</li>
+            <li><strong>Golgi Apparatus:</strong> Involved in packaging and transport of proteins.</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+    <button class="button" id="quiz">Take quiz >>></button>
+    <script>
+        document.getElementById("quiz").addEventListener("click", function () {
+            window.location.href = "plantcellQ.html"; // Redirect to the quiz page
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Cell </title>
+    <link rel="stylesheet" href="bio.css"> <!-- Using the same styling -->
+    <link rel="icon" type="image/png" href="../favicon.png"> <!-- Ensure you have a favicon -->
+    <style>
+        /* Spacing Adjustments */
+        .page-title {
+            margin-top: 100px; /* Space from taskbar */
+            font-size: 28px;
+        }
+
+        /* Centering and Adjusting the Embed */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px; /* More space below the title */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px;  /* Reduced width */
+            height: 500px; /* Reduced height */
+            border-radius: 10px; /* Optional: Rounded edges */
+        }
+
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #ffffff;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Animal Cell</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe 
+            title="Biology Animal Cell" 
+            frameborder="0" allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking execution-while-out-of-viewport 
+            execution-while-not-rendered web-share 
+            src="https://sketchfab.com/models/4d60cacd5fa543058cfe65064e2d4d53/embed">
+        </iframe>
+    </div>
+
+    <p style="font-size: 13px; font-weight: normal; margin-top: 10px; text-align: center; color: #CCCCCC;"> 
+        <a href="https://sketchfab.com/3d-models/biology-animal-cell-4d60cacd5fa543058cfe65064e2d4d53" 
+           target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Biology Animal Cell </a> 
+        by <a href="https://sketchfab.com/pavelmo4alov" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> pavelmo4alov </a> 
+        on <a href="https://sketchfab.com" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+    </p>
+
+    <!-- Animal Cell Information -->
+    <div class="content">
+        <h2>Animal Cell Definition</h2>
+        <p>“An animal cell is a type of eukaryotic cell that lacks a cell wall and has a true, membrane-bound nucleus along with other cellular organelles.”</p>
+
+        <h2>Explanation</h2>
+        <p>Animal cells range in size from a few microscopic microns to a few millimetres. The largest known animal cell is the ostrich egg, which can stretch over 5.1 inches across and weighs about 1.4 kilograms. This is in stark contrast to the neuron in the human body, which is just 100 microns across.</p>
+        <p>The shape of animal cells also varies, with some being flat, others oval or rod-shaped. There are also more intriguing shapes such as curved, spherical, concave and rectangular. Most of the cells are microscopic in size and can only be seen under the microscope.</p>
+
+        <h2>Animal Cell Structure</h2>
+        <p>Animal cells are generally smaller than plant cells. Another defining characteristic is its irregular shape. This is due to the absence of a cell wall. But animal cells share other cellular organelles with plant cells as both have evolved from eukaryotic cells.</p>
+        
+        <h2>A typical animal cell comprises the following cell organelles:</h2>
+        <ul>
+            <li><strong>Cell Membrane:</strong> A thin semipermeable membrane layer of lipids and proteins surrounding the cell, protecting it and controlling entry and exit of nutrients.</li>
+            <li><strong>Nucleus:</strong> Contains DNA and genetic materials.</li>
+            <li><strong>Nuclear Membrane:</strong> A double-membrane structure surrounding the nucleus.</li>
+            <li><strong>Centrosome:</strong> Found near the nucleus, produces microtubules.</li>
+            <li><strong>Lysosome:</strong> Round organelles with digestive enzymes for cell renewal.</li>
+            <li><strong>Cytoplasm:</strong> Jelly-like material that contains all organelles.</li>
+            <li><strong>Golgi Apparatus:</strong> Involved in manufacturing, storing, and transporting particles.</li>
+            <li><strong>Mitochondrion:</strong> The powerhouse of the cell, releasing energy.</li>
+            <li><strong>Ribosome:</strong> The site of protein synthesis.</li>
+            <li><strong>Endoplasmic Reticulum (ER):</strong> A thin, winding network of membranous sacs.</li>
+            <li><strong>Vacuole:</strong> Maintains shape and stores water, food, and wastes.</li>
+            <li><strong>Nucleopore:</strong> Tiny holes in the nuclear membrane for nucleic acid movement.</li>
+        </ul>
+
+        <h2>Animal Cell Types</h2>
+        <ul>
+            <li><strong>Skin Cells:</strong> Melanocytes, keratinocytes, Merkel cells, Langerhans cells.</li>
+            <li><strong>Muscle Cells:</strong> Myocyte, Myosatellite cells, Tendon cells, Cardiac muscle cells.</li>
+            <li><strong>Blood Cells:</strong> Leukocytes, erythrocytes, platelets.</li>
+            <li><strong>Nerve Cells:</strong> Schwann cells, glial cells.</li>
+            <li><strong>Fat Cells:</strong> Adipocytes.</li>
+        </ul>
+
+        <h2>Points to Note About Animal Cells</h2>
+        <p>The cell is the structural and functional unit of life. These cells differ in their shapes, sizes, and structure to fulfil specific functions. Plant and animal cells share some common features as both are eukaryotic.</p>
+        <p>However, animals need to adapt to a more active and non-sedentary lifestyle. Furthermore, animals need to acquire their own food, so they do not possess specialized organelles like chloroplasts.</p>
+    </div>
+
+    <button class="button" id="quiz">Take quiz >>></button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+        // Button click event
+        document.getElementById("quiz").addEventListener("click", function () {
+            window.location.href = "animalcellQ.html"; // Change this to your intended page
+        });
+    </script>
+</body>
+</html>

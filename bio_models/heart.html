@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Heart</title>
+    <link rel="stylesheet" href="bio.css"> <!-- Using the same styling -->
+    <link rel="icon" type="image/png" href="../favicon.png"> <!-- Ensure you have a favicon -->
+    <style>
+        /* Spacing Adjustments */
+        .page-title {
+            margin-top: 100px; /* Space from taskbar */
+            font-size: 28px;
+        }
+
+        /* Centering and Adjusting the Embed */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px; /* More space below the title */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px;  /* Reduced width */
+            height: 500px; /* Reduced height */
+            border-radius: 10px; /* Optional: Rounded edges */
+        }
+
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #ffffff;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Human Heart</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe 
+            title="Human Heart (3D Animated)" 
+            frameborder="0" allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking execution-while-out-of-viewport 
+            execution-while-not-rendered web-share 
+            src="https://sketchfab.com/models/911272d9f7c146bea5403d1e4d2dfb31/embed">
+        </iframe>
+    </div>
+
+    <p style="font-size: 13px; font-weight: normal; margin-top: 10px; text-align: center; color: #CCCCCC;"> 
+        <a href="https://sketchfab.com/3d-models/human-heart-3d-animated-911272d9f7c146bea5403d1e4d2dfb31" 
+           target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Human Heart (3D Animated) </a> 
+        by <a href="https://sketchfab.com/Ebers" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Ebers </a> 
+        on <a href="https://sketchfab.com" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+    </p>
+
+    <!-- Human Heart Information -->
+    <div class="content">
+        <h2>Human Heart Overview</h2>
+        <p>The human heart is a muscular organ that pumps blood throughout the body, supplying oxygen and nutrients while removing waste products.</p>
+
+        <h2>Structure and Function</h2>
+        <p>The heart consists of four chambers: two atria and two ventricles. It is divided into left and right sections, each responsible for different circulatory tasks.</p>
+
+        <h2>Main Components of the Heart</h2>
+        <ul>
+            <li><strong>Atria:</strong> The upper chambers that receive blood.</li>
+            <li><strong>Ventricles:</strong> The lower chambers that pump blood out.</li>
+            <li><strong>Valves:</strong> Ensure one-way blood flow (tricuspid, pulmonary, mitral, aortic).</li>
+            <li><strong>Arteries and Veins:</strong> Transport oxygenated and deoxygenated blood.</li>
+        </ul>
+
+        <h2>Circulatory System</h2>
+        <p>The heart plays a central role in the circulatory system, ensuring blood is continuously supplied to all organs.</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+    <button class="button" id="quiz">Take quiz >>></button>
+    <script>
+        document.getElementById("quiz").addEventListener("click", function () {
+            window.location.href = "heartQ.html"; // Redirect to the quiz page
+        });
+    </script>
+</body>
+</html>

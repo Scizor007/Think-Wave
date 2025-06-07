@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla Coil</title>
+    <link rel="stylesheet" href="phy.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        .page-title {
+            margin-top: 100px;
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px;
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #ffffff;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Tesla Coil</h1>
+
+    <div class="sketchfab-embed-wrapper">
+        <iframe title="Tesla Coil" frameborder="0" allowfullscreen 
+            mozallowfullscreen="true" webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking execution-while-out-of-viewport 
+            execution-while-not-rendered web-share 
+            src="https://sketchfab.com/models/8c79fd75319c488f8d505f9206e0a4fa/embed">
+        </iframe>
+    </div>
+
+    <p style="font-size: 13px; font-weight: normal; margin-top: 10px; text-align: center; color: #CCCCCC;"> 
+        <a href="https://sketchfab.com/3d-models/tesla-coil-8c79fd75319c488f8d505f9206e0a4fa" 
+           target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Tesla Coil </a> 
+        by <a href="https://sketchfab.com/thunder_mare" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> ThunderMare </a> 
+        on <a href="https://sketchfab.com" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+    </p>
+
+    <div class="content">
+        <h2>What is a Tesla Coil?</h2>
+        <p>The Tesla Coil is an electrical resonant transformer circuit invented by Nikola Tesla in 1891. It is used to produce high-voltage, low-current, high-frequency alternating current electricity.</p>
+
+        <h2>Working Principle</h2>
+        <p>The Tesla Coil operates through electromagnetic induction and resonance. It consists of a primary coil, a secondary coil, and a high-voltage transformer. When an alternating current passes through the primary coil, it induces a voltage in the secondary coil, creating high-voltage discharges.</p>
+
+        <h2>Components of a Tesla Coil</h2>
+        <ul>
+            <li><strong>Primary Coil:</strong> A coil of thick wire that receives the initial charge.</li>
+            <li><strong>Secondary Coil:</strong> A longer coil with many turns that steps up the voltage.</li>
+            <li><strong>Capacitor:</strong> Stores and releases electrical energy.</li>
+            <li><strong>Discharge Terminal:</strong> Releases electrical arcs.</li>
+        </ul>
+
+        <h2>Applications</h2>
+        <ul>
+            <li>Used in wireless power transmission research.</li>
+            <li>Demonstrations of high-voltage electricity in science exhibits.</li>
+            <li>Predecessor to modern radio transmission technology.</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

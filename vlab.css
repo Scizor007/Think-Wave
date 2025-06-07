@@ -1,0 +1,94 @@
+/* General Page Styling */
+body {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Video Background */
+.video-bg {
+    position: fixed;
+    top: -5%; /* Shift slightly up */
+    left: -5%; /* Shift slightly left */
+    width: 110vw; /* Increase width beyond viewport */
+    height: 110vh; /* Increase height beyond viewport */
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Taskbar */
+.taskbar-container {
+    width: 100%;
+    height: 60px;
+    position: fixed; /* Ensure it stays at the top */
+    top: 0;
+    left: 0;
+    background: #000000;
+    z-index: 10;
+}
+
+/* Page Title */
+.page-title {
+    margin-top: 80px; /* Adjusted for better spacing */
+    font-size: 24px;
+}
+
+/* Move Transparent Container Down */
+.transparent-container {
+    background: rgba(0, 0, 0, 0.5); /* Black with 50% transparency */
+    padding: 15px; /* Reduced padding */
+    border-radius: 10px; /* Rounded corners */
+    display: inline-block;
+    margin-top: 70px; /* Increased to push it further down */
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Text Formatting */
+h2 {
+    font-size: 36px; /* Increase size of "Explore Virtual Labs!" */
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+.lab-description {
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: center; /* Center-align text */
+    margin-bottom: 20px;
+}
+
+/* Move Buttons Further Down */
+.model-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px; /* Increased spacing */
+}
+
+/* Button Styling */
+.model-button {
+    display: inline-block;
+    background-color: rgb(229, 90, 85);
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: 4px solid rgb(0, 0, 0);
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 5px 5px 0px rgb(0, 0, 0);
+    font-family: 'Press Start 2P', cursive;
+    margin: 15px; /* Reduced space between buttons */
+}
+
+/* Hover Effect */
+.model-button:hover {
+    transform: scale(1.1);
+    box-shadow: 8px 8px 0px rgb(0, 0, 0); /* Enlarged shadow on hover */
+}

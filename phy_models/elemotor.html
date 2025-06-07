@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Motor</title>
+    <link rel="stylesheet" href="phy.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        .page-title {
+            margin-top: 100px;
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px;
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #ffffff;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Electric Motor</h1>
+
+    <div class="sketchfab-embed-wrapper">
+        <iframe title="Electric Motor" frameborder="0" allowfullscreen 
+            mozallowfullscreen="true" webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking execution-while-out-of-viewport 
+            execution-while-not-rendered web-share 
+            src="https://sketchfab.com/models/229adf4360e8466b88292c3c0571cbf8/embed">
+        </iframe>
+    </div>
+
+    <p style="font-size: 13px; font-weight: normal; margin-top: 10px; text-align: center; color: #CCCCCC;"> 
+        <a href="https://sketchfab.com/3d-models/electric-motor-229adf4360e8466b88292c3c0571cbf8" 
+           target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Electric Motor </a> 
+        by <a href="https://sketchfab.com/vidwathmixedreality" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> vidwathmixedreality </a> 
+        on <a href="https://sketchfab.com" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+    </p>
+
+    <div class="content">
+        <h2>What is an Electric Motor?</h2>
+        <p>An electric motor is a device that converts electrical energy into mechanical energy through electromagnetic interactions.</p>
+
+        <h2>Working Principle</h2>
+        <p>Electric motors operate on the principle of electromagnetism, where a current-carrying conductor placed in a magnetic field experiences a force, causing rotation.</p>
+
+        <h2>Components of an Electric Motor</h2>
+        <ul>
+            <li><strong>Stator:</strong> The stationary part that generates a magnetic field.</li>
+            <li><strong>Rotor:</strong> The moving part that rotates due to electromagnetic forces.</li>
+            <li><strong>Commutator:</strong> Helps in switching the direction of current.</li>
+            <li><strong>Brushes:</strong> Conduct electricity between the stationary and rotating parts.</li>
+        </ul>
+
+        <h2>Applications</h2>
+        <ul>
+            <li>Used in household appliances like fans and refrigerators.</li>
+            <li>Essential in electric vehicles for propulsion.</li>
+            <li>Industrial machinery relies on electric motors for automation.</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

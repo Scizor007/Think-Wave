@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackbody Spectrum</title>
+    <link rel="stylesheet" href="cheml.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Page Title */
+        .page-title {
+            margin-top: 100px; /* Space from taskbar */
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the 3D Model */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        /* Content Box Styling */
+        .content-box {
+            margin: 40px auto 60px; /* Adjusted margins for proper spacing */
+            width: 75%;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            background-color: rgba(0, 0, 0, 0.5); /* Subtle background for readability */
+            border-radius: 10px;
+        }
+
+        .content-box h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Blackbody Spectrum</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe src="https://phet.colorado.edu/sims/html/blackbody-spectrum/latest/blackbody-spectrum_en.html"
+        width="800"
+        height="600"
+        allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Content Box -->
+    <div class="content-box">
+        <h2>What is Blackbody Radiation?</h2>
+        <p>
+            A blackbody is an idealized object that absorbs all incident electromagnetic radiation, regardless of frequency or angle. When heated, it emits radiation in a predictable spectrum, known as blackbody radiation.
+        </p>
+        <p>
+            The emitted spectrum depends on temperature:  
+            - Cooler objects emit infrared radiation (invisible to the human eye).  
+            - As temperature increases, emission shifts toward visible light (red, yellow, blue, and beyond).  
+            - Extremely hot objects emit ultraviolet radiation.
+        </p>
+
+        <h2>Exploring the Simulation</h2>
+        <p>
+            This interactive simulation lets you:
+            <ul>
+                <li>Adjust the temperature to see how the spectrum changes.</li>
+                <li>Observe the peak wavelength shift as temperature increases.</li>
+                <li>Compare blackbody spectra of different objects like the Sun, light bulbs, and stars.</li>
+                <li>Understand Wien's displacement law and Stefan-Boltzmann law.</li>
+            </ul>
+        </p>
+        <p>
+            This is a fundamental concept in astronomy, physics, and thermal engineering.
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Authentication</title>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAcuy_ddUMht5QJC1iflKiG1ac4nJ3YKho",
+            authDomain: "trial-d0293.firebaseapp.com",
+            projectId: "trial-d0293",
+            storageBucket: "trial-d0293.appspot.com",
+            messagingSenderId: "417964019865",
+            appId: "1:417964019865:web:2227140f87231d80512808",
+            measurementId: "G-FJTZQCMFYJ"
+        };
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        
+        // Sign Up Function
+        window.signUp = function () {
+            const email = document.getElementById("signup-email").value;
+            const password = document.getElementById("signup-password").value;
+            
+            createUserWithEmailAndPassword(auth, email, password)
+                .then(userCredential => {
+                    alert("User Created Successfully!");
+                    console.log(userCredential.user);
+                })
+                .catch(error => alert(error.message));
+        };
+
+        // Login Function
+        window.login = function () {
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+            
+            signInWithEmailAndPassword(auth, email, password)
+                .then(userCredential => {
+                    alert("Logged in Successfully!");
+                    console.log(userCredential.user);
+                })
+                .catch(error => alert(error.message));
+        };
+
+        // Logout Function
+        window.logout = function () {
+            signOut(auth)
+                .then(() => {
+                    alert("Logged Out!");
+                })
+                .catch(error => alert(error.message));
+        };
+
+        // Auth State Change Listener
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                document.getElementById("user-info").innerText = `Logged in as: ${user.email}`;
+            } else {
+                document.getElementById("user-info").innerText = "Not logged in";
+            }
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 80%;
+            max-width: 300px;
+        }
+        button {
+            padding: 10px;
+            width: 200px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Firebase Authentication</h2>
+
+    <div>
+        <h3>Sign Up</h3>
+        <input type="email" id="signup-email" placeholder="Enter Email">
+        <input type="password" id="signup-password" placeholder="Enter Password">
+        <button onclick="signUp()">Sign Up</button>
+    </div>
+
+    <div>
+        <h3>Login</h3>
+        <input type="email" id="login-email" placeholder="Enter Email">
+        <input type="password" id="login-password" placeholder="Enter Password">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div>
+        <h3>User Info</h3>
+        <p id="user-info">Not logged in</p>
+        <button onclick="logout()">Logout</button>
+    </div>
+</body>
+</html>

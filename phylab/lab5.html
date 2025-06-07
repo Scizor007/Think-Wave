@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coulomb's Law</title>
+    <link rel="stylesheet" href="phyl.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Page Title */
+        .page-title {
+            margin-top: 100px; /* Space from taskbar */
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the Simulation */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        /* Content Box Styling */
+        .content-box {
+            margin: 40px auto 60px;
+            width: 75%;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            background-color: rgba(0, 0, 0, 0.5); /* Subtle background for readability */
+            border-radius: 10px;
+        }
+
+        .content-box h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Coulomb's Law</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe src="https://phet.colorado.edu/sims/html/coulombs-law/latest/coulombs-law_en.html"
+        width="800"
+        height="600"
+        allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Content Box -->
+    <div class="content-box">
+        <h2>Understanding Coulomb’s Law</h2>
+        <p>
+            Coulomb’s Law describes the force between two charged objects. It states that the electrostatic force (F) between two charges is directly proportional to the product of their magnitudes and inversely proportional to the square of the distance between them:
+        </p>
+
+        <p style="text-align: center; font-size: 18px; font-weight: bold; color: #ffcc00;">
+            F = k * (|q₁ * q₂| / r²)
+        </p>
+
+        <p>
+            Where:  
+            - F = Electrostatic force (Newtons)  
+            - q₁, q₂ = Magnitudes of the charges (Coulombs)  
+            - r = Distance between the charges (meters)  
+            - k = Coulomb’s constant ≈ 8.99 × 10⁹ N·m²/C²  
+        </p>
+
+        <h2>Key Concepts</h2>
+        <p>
+            <ul>
+                <li>Attractive or Repulsive: Like charges repel, opposite charges attract.</li>
+                <li>Force Magnitude: Larger charges exert a stronger force.</li>
+                <li>Distance Effect: Doubling the distance reduces the force to 1/4th.</li>
+            </ul>
+        </p>
+
+        <h2>Real-World Applications</h2>
+        <p>
+            <ul>
+                <li>Electrostatic forces in lightning and thunderstorms.</li>
+                <li>Charged particles in semiconductor devices.</li>
+                <li>Forces at play in atomic and molecular interactions.</li>
+            </ul>
+        </p>
+
+        <h2>Explore the Simulation</h2>
+        <p>
+            <ul>
+                <li>Adjust charge values to see force variations.</li>
+                <li>Change distance and observe force reduction or increase.</li>
+                <li>Experiment with multiple charges to see combined forces.</li>
+            </ul>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

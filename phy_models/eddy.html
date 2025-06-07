@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eddy Current</title>
+    <link rel="stylesheet" href="phy.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        .page-title {
+            margin-top: 100px;
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px;
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #ffffff;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Eddy Current</h1>
+
+    <div class="sketchfab-embed-wrapper">
+        <iframe title="Eddy Current" frameborder="0" allowfullscreen 
+            mozallowfullscreen="true" webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking execution-while-out-of-viewport 
+            execution-while-not-rendered web-share 
+            src="https://sketchfab.com/models/c5f8170bdb6c445994cfc387e9a4a6f8/embed">
+        </iframe>
+    </div>
+
+    <p style="font-size: 13px; font-weight: normal; margin-top: 10px; text-align: center; color: #CCCCCC;"> 
+        <a href="https://sketchfab.com/3d-models/eddy-current-c5f8170bdb6c445994cfc387e9a4a6f8" 
+           target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Eddy Current </a> 
+        by <a href="https://sketchfab.com/visualpathshala" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> VisualPathshala </a> 
+        on <a href="https://sketchfab.com" 
+              target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+    </p>
+
+    <div class="content">
+        <h2>What is Eddy Current?</h2>
+        <p>Eddy currents are loops of electric current induced in conductors due to changing magnetic fields, following Faraday's Law of Electromagnetic Induction. These currents create opposing magnetic fields that resist the change that caused them.</p>
+
+        <h2>Working Principle</h2>
+        <p>When a conductor moves through a magnetic field or experiences a changing magnetic flux, circulating currents are induced within the conductor. These currents generate their own magnetic field, which opposes the initial field, leading to effects like electromagnetic damping and heating.</p>
+
+        <h2>Applications of Eddy Currents</h2>
+        <ul>
+            <li><strong>Electromagnetic Braking:</strong> Used in high-speed trains and roller coasters.</li>
+            <li><strong>Induction Heating:</strong> Used for metal heating in industries.</li>
+            <li><strong>Metal Detection:</strong> Used in security and quality control.</li>
+            <li><strong>Transformers & Motors:</strong> Reducing eddy current losses in electrical devices.</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

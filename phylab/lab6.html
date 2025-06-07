@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projectile Motion</title>
+    <link rel="stylesheet" href="phyl.css"> <!-- Reuse styling for consistency -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Page Title */
+        .page-title {
+            margin-top: 100px; /* Space from taskbar */
+            font-size: 28px;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        /* Centering the Simulation */
+        .sketchfab-embed-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            width: 750px; 
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        /* Content Box Styling */
+        .content-box {
+            margin: 40px auto 60px;
+            width: 75%;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            background-color: rgba(0, 0, 0, 0.5); /* Subtle background for readability */
+            border-radius: 10px;
+        }
+
+        .content-box h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div id="taskbar-container" class="taskbar-container"></div>
+
+    <h1 class="page-title">Projectile Motion</h1>
+
+    <!-- 3D Model Embed -->
+    <div class="sketchfab-embed-wrapper">
+        <iframe src="https://phet.colorado.edu/sims/html/projectile-motion/latest/projectile-motion_en.html"
+        width="800"
+        height="600"
+        allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Content Box -->
+    <div class="content-box">
+        <h2>Understanding Projectile Motion</h2>
+        <p>
+            Projectile motion occurs when an object is thrown into the air and moves under the influence of gravity. The motion follows a curved parabolic trajectory, determined by the object's initial speed and launch angle.
+        </p>
+
+        <h2>Key Equations</h2>
+        <p style="text-align: center; font-size: 18px; font-weight: bold; color: #ffcc00;">
+            <u1>
+                <li> 1. Time of Flight: T = (2 * v₀ * sinθ) / g </li> 
+                <li> 2. Maximum Height: H = (v₀² * sin²θ) / (2g) </li> 
+                <li> 3. Range: R = (v₀² * sin(2θ)) / g </li> 
+            </u1>
+        </p>
+
+        <p>
+            Where:  
+            - v₀ = Initial velocity  
+            - θ = Launch angle  
+            - g = Acceleration due to gravity (9.81 m/s²)  
+        </p>
+
+        <h2>Key Concepts</h2>
+        <p>
+            <ul>
+                <li>Horizontal Motion: Constant velocity, as no horizontal acceleration acts (ignoring air resistance).</li>
+                <li>Vertical Motion: Affected by gravity, causing acceleration downward.</li>
+                <li>Parabolic Path: The combination of horizontal and vertical motions results in a parabola.</li>
+            </ul>
+        </p>
+
+        <h2>Real-World Applications</h2>
+        <p>
+            <ul>
+                <li>Sports: Basketball, football, and cricket involve projectile motion.</li>
+                <li>Physics: Motion of cannonballs, rockets, and missiles.</li>
+                <li>Engineering: Designing curved bridges and roller coasters.</li>
+            </ul>
+        </p>
+
+        <h2>Explore the Simulation</h2>
+        <p>
+            <ul>
+                <li>Change launch angle and see how the range changes.</li>
+                <li>Increase initial velocity and observe the higher trajectory.</li>
+                <li>Turn air resistance on/off to see its impact on motion.</li>
+            </ul>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("taskbar.html") // Load taskbar dynamically
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("taskbar-container").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>
